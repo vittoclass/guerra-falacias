@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guerra de Falacias: Arena Táctica v4.0</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght=0,400;0,700;1,400;1,700&family=Orbitron:wght=400;700;900&display=swap" rel="stylesheet">
-    <!-- QR Code Generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <!-- WebRTC PeerJS de Respaldo Original - CAPA SAGRADA INTOCABLE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.4/peerjs.min.js"></script>
     
     <style>
@@ -40,25 +37,20 @@
             0% { background-color: rgba(245, 158, 11, 0.2); transform: scale(1); }
             100% { background-color: rgba(245, 158, 11, 0.6); transform: scale(1.02); }
         }
-        /* FILTRO CRT MONITOR MILITAR EXCLUSIVO DE CAPA VISUAL */
-        .crt-lines {
-            position: relative;
-        }
+        .crt-lines { position: relative; }
         .crt-lines::after {
-            content: " ";
-            display: block;
-            position: absolute;
+            content: " "; display: block; position: absolute;
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 10;
-            background-size: 100% 3px, 3px 100%;
-            pointer-events: none;
+            z-index: 10; background-size: 100% 3px, 3px 100%; pointer-events: none;
         }
         .grid-cyber {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(31, 41, 55, 0.15) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(31, 41, 55, 0.15) 1px, transparent 1px);
         }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
     </style>
 </head>
 <body class="p-3 md:p-6 min-h-screen flex flex-col items-center overflow-x-hidden grid-cyber crt-lines">
@@ -78,6 +70,62 @@
         </div>
     </header>
 
+    <section class="cyber-panel rounded-2xl p-5 border-2 border-amber-500/40 bg-slate-950/40">
+        <div class="flex flex-col gap-4">
+            <span class="text-xs text-amber-400 font-bold orbitron tracking-wider">🗂️ BASE DE DATOS CRÍTICA DE LA ARENA (UNIDAD 2: ENTORNOS DIGITALES)</span>
+            
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="switchPedagogicalTab('lvl-2medio')" id="btn-lvl-2medio" class="bg-slate-950 border border-amber-400 text-[#00f0ff] font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold">🎮 2do Medio</button>
+                <button onclick="switchPedagogicalTab('lvl-3medio')" id="btn-lvl-3medio" class="bg-slate-900 border border-slate-700 text-slate-300 font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold hover:border-[#00f0ff]">🛰️ 3ero Medio</button>
+                <button onclick="switchPedagogicalTab('lvl-4medio')" id="btn-lvl-4medio" class="bg-slate-900 border border-slate-700 text-slate-300 font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold hover:border-[#00f0ff]">🧠 4to Medio</button>
+            </div>
+
+            <div class="bg-black/90 border border-slate-800 rounded-xl p-5 min-h-[180px] text-xs space-y-4">
+                <div id="lvl-2medio" class="tab-content active font-mono space-y-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-cyan-950 text-[#00f0ff] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 1</span> <b class="text-white">Ataque al Hombre (Ad Hominem)</b></div>
+                        <p class="text-slate-400">Descalificar un argumento atacando directamente las condiciones o moral del emisor en vez de sus ideas.</p>
+                        <span class="text-cyan-400 text-[10px] block mt-0.5">🌐 Ejemplo: "No pesquen el hilo de ese loco sobre transporte urbano, si apenas tiene 15 años y juega Minecraft."</span>
+                    </div>
+                    <hr class="border-slate-900">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-cyan-950 text-[#00f0ff] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 2</span> <b class="text-white">Falacia del Hombre de Paja</b></div>
+                        <p class="text-slate-400">Caricaturizar o deformar los dichos del rival para fabricar una versión débil y fácil de derribar.</p>
+                        <span class="text-cyan-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Dices que hay que regular los celulares en clases y te responden: '¡Ah, quieres prohibir la tecnología y volver a la edad de piedra!'."</span>
+                    </div>
+                </div>
+
+                <div id="lvl-3medio" class="tab-content font-mono space-y-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-emerald-950 text-[#39ff14] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 3</span> <b class="text-white">Apelación a la Masa (Ad Populum)</b></div>
+                        <p class="text-slate-400">Validar la veracidad de un dato o software basándose exclusivamente en su nivel de viralidad o descargas.</p>
+                        <span class="text-emerald-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Este bot de inversión tiene un video en TikTok con 4 millones de reproducciones, por ende es 100% real y seguro."</span>
+                    </div>
+                    <hr class="border-slate-900">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-emerald-950 text-[#39ff14] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 4</span> <b class="text-white">Sesgo de Confirmación</b></div>
+                        <p class="text-slate-400">Tendencia a procesar y aceptar únicamente la información que aprueba tus opiniones previas.</p>
+                        <span class="text-emerald-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Crees que las redes te censuran, así que solo guardas capturas que apoyan tu sospecha bloqueando reportes oficiales."</span>
+                    </div>
+                </div>
+
+                <div id="lvl-4medio" class="tab-content font-mono space-y-3">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-rose-950 text-[#ff2a5f] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 5</span> <b class="text-white">Burbujas de Filtro Algorítmicas</b></div>
+                        <p class="text-slate-400">Aislamiento ideológico provocado por algoritmos que personalizan tus feeds según tus clics históricos.</p>
+                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Dos alumnos buscan el mismo concepto social en Google en Maipú y reciben respuestas ideológicas opuestas."</span>
+                    </div>
+                    <hr class="border-slate-900">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1"><span class="bg-rose-950 text-[#ff2a5f] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 6</span> <b class="text-white">Falacia del Francotirador</b></div>
+                        <p class="text-slate-400">Seleccionar quirúrgicamente datos aislados que favorecen tu hipótesis, ignorando la estadística completa.</p>
+                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Se detecta un error de traducción en una IA, y un foro sentencia en Twitch: 'Este software es inservible y fallará siempre'."</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="companion-mobile-view" class="hidden w-full max-w-md mx-auto flex flex-col gap-4">
         <div id="mobile-join-panel" class="cyber-panel rounded-xl p-6 border-2 border-[#00f0ff] text-center">
             <span class="text-xs text-[#00f0ff] font-bold orbitron block mb-1">📡 MANDO DE ESTUDIANTE</span>
@@ -89,29 +137,24 @@
         <div id="mobile-lobby-panel" class="hidden cyber-panel rounded-xl p-6 border-2 border-slate-800 text-center">
             <span class="text-xs text-[#39ff14] font-bold orbitron block mb-2">🟢 EN ÓRBITA CON EL PROYECTOR</span>
             <h3 class="orbitron text-xl font-bold text-white mb-3" id="mobile-connected-name">PILOTO</h3>
-            
-            <!-- CAPA EXTRA: BARRA DE VIDA REALTIME EN EL CELULAR -->
             <div class="w-full bg-slate-950 border border-slate-800 rounded-full h-5 overflow-hidden mb-4 flex items-center justify-center relative">
                 <div id="mobile-hp-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-full absolute left-0 top-0 transition-all duration-300"></div>
                 <span id="mobile-hp-text" class="text-[10px] font-mono font-bold text-white z-10">SALUD: 100%</span>
             </div>
-            
             <div class="animate-pulse bg-slate-900 border border-slate-800 text-slate-400 rounded px-3 py-2 text-[11px] font-mono leading-relaxed">
-                Sincronizado con éxito. Mira el proyector de la sala... Esperando asignación de combate.
+                Sincronizado con éxito. Esperando apertura de compuertas de duelo simultáneo...
             </div>
         </div>
 
-        <!-- MANDO ACTIVO CON INTEGRACIÓN DE ALERTAS DE ALTA FIDELIDAD -->
         <div id="mobile-action-panel" class="hidden cyber-panel rounded-xl p-6 border-2 border-yellow-500 text-center pulse-fast">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-4">
-                <span class="text-xs text-yellow-500 font-bold orbitron">⚠️ COMBATE ASIGNADO</span>
+                <span class="text-xs text-yellow-500 font-bold orbitron">⚠️ DUELO VELOCIDAD SIMULTÁNEO</span>
                 <span class="text-xs text-[#00f0ff] font-bold orbitron" id="mobile-timer">15s</span>
             </div>
-            <p class="text-sm font-black text-white mb-3 orbitron tracking-wide" id="mobile-role-alert">¡ALERTA DE TURNO!</p>
+            <p class="text-sm font-black text-white mb-3 orbitron tracking-wide">¡GANA EL PRIMERO QUE RESPONDA BIEN!</p>
             <div class="grid grid-cols-1 gap-2" id="mobile-options-grid"></div>
         </div>
         
-        <!-- MODAL DE RETROALIMENTACIÓN CORRECTIVA PEDAGÓGICA -->
         <div id="mobile-result-panel" class="hidden cyber-panel rounded-xl p-6 border-2 text-center">
             <span class="text-4xl block mb-2" id="mobile-result-icon">🎯</span>
             <h3 class="orbitron text-xl font-black uppercase mb-1" id="mobile-result-title">RESULTADO</h3>
@@ -122,7 +165,6 @@
 
     <div id="host-main-interface" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-4 flex flex-col gap-6">
-            <!-- PANEL DE ENLACE -->
             <div class="cyber-panel rounded-2xl p-5 flex flex-col gap-4 border-2 border-[#00f0ff]">
                 <h3 class="orbitron text-sm font-bold text-[#00f0ff] uppercase tracking-wider border-b border-slate-800 pb-2 flex items-center gap-2 glow-cyan"><span>📡</span> ANTENA DE TRANSMISIÓN</h3>
                 <div class="bg-slate-950 p-3 border border-slate-800 rounded-xl text-xs space-y-2 font-mono">
@@ -141,14 +183,11 @@
                 </div>
             </div>
 
-            <!-- TABLA EXTRA: GRÁFICAS Y RESÚMENES DE RANKING EN VIVO -->
             <div class="cyber-panel rounded-2xl p-5 border-2 border-[#39ff14]/30">
                 <h3 class="orbitron text-sm font-bold text-[#39ff14] uppercase tracking-wider border-b border-slate-800 pb-2 mb-3 flex justify-between items-center">
                     <span>🏆 CLASIFICACIÓN GENERAL</span>
                     <span id="global-alive-badge" class="text-[10px] bg-emerald-950 text-[#39ff14] px-2 py-0.5 rounded font-mono font-bold">0 VIVOS</span>
                 </h3>
-                
-                <!-- Macro Indicadores Estadísticos de la Sala -->
                 <div class="grid grid-cols-2 gap-2 mb-3 text-center font-mono text-[10px]">
                     <div class="bg-slate-950 p-2 border border-slate-800 rounded-lg">
                         <span class="text-slate-500 block">IMPACTOS TOTALES</span>
@@ -159,22 +198,18 @@
                         <span id="stat-total-errors" class="text-[#ff2a5f] font-bold text-xs">0</span>
                     </div>
                 </div>
-
                 <div class="max-h-60 overflow-y-auto font-mono text-xs text-slate-300 space-y-1" id="roster-list-names">
                     <span class="text-slate-500 italic">Cargando base de datos de pilotos...</span>
                 </div>
-                
-                <div class="mt-4 border-t border-slate-800 pt-3 flex flex-col gap-2">
-                    <textarea id="students-input" class="w-full h-12 bg-black border border-slate-800 rounded p-1.5 text-[10px] font-mono text-[#39ff14] focus:outline-none hidden" placeholder="Nombres..."></textarea>
+                <div class="mt-4 border-t border-slate-800 pt-3">
                     <button class="w-full bg-slate-900 border border-slate-700 hover:border-[#39ff14] text-slate-300 py-2 rounded-xl text-[10px] font-bold transition-all uppercase font-mono" onclick="loadDefaultChileanCourse()">🔋 Inyectar Curso Escolar (45 Slots)</button>
                 </div>
             </div>
         </div>
 
         <div class="lg:col-span-8 flex flex-col gap-6">
-            <!-- RADAR CANVAS HTML5 ENRIQUECIDO (ESTELAS Y POWER-UPS) -->
             <div class="cyber-panel rounded-2xl p-4 flex flex-col">
-                <h3 class="orbitron text-xs md:text-sm font-bold text-[#00f0ff] uppercase tracking-widest border-b border-slate-800 pb-2 mb-3 glow-cyan">🔮 RADAR ORBITAL EN VIVO (💚 BOTIQUINES ACTIVOS EN MAPA)</h3>
+                <h3 class="orbitron text-xs md:text-sm font-bold text-[#00f0ff] uppercase tracking-widest border-b border-slate-800 pb-2 mb-3 glow-cyan">🔮 RADAR ORBITAL EN VIVO (💚 BOTIQUINES RÁPIDOS ACTIVOS)</h3>
                 <div class="relative w-full aspect-[16/9] bg-[#020408] border border-slate-800 rounded-xl overflow-hidden shadow-inner" id="canvas-container">
                     <canvas id="arena-canvas" class="w-full h-full block cursor-crosshair"></canvas>
                     <div class="absolute bottom-3 left-3 bg-black/80 px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-mono flex gap-4 pointer-events-none">
@@ -184,38 +219,36 @@
                 </div>
             </div>
 
-            <!-- PANEL DE SELECCIÓN Y CONTROL DE DUELOS -->
             <div class="cyber-panel rounded-2xl p-5" id="action-panel">
                 <div class="flex justify-center mb-4">
-                    <button onclick="launchRandomDuel()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-black uppercase orbitron px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all text-xs">⚔️ INICIAR COMBATE ALEATORIO</button>
+                    <button onclick="launchRandomDuel()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-black uppercase orbitron px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all text-xs">⚔️ INICIAR COMBATE SIMULTÁNEO ALEATORIO</button>
                 </div>
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <div class="text-xs text-slate-400 font-mono" id="duel-header-info">Haz clic en dos naves para forzar combate manual.</div>
+                    <div class="text-xs text-slate-400 font-mono" id="duel-header-info">Presiona el botón superior. Cola equilibrada sin repetición activada.</div>
                     <div class="bg-slate-900 border border-[#00f0ff] rounded-lg px-3 py-1 flex items-center gap-2"><span class="text-[10px] text-slate-400 font-mono">TIEMPO:</span><span class="orbitron font-bold text-sm text-[#00f0ff]" id="countdown-timer">15s</span></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center justify-center py-2" id="pre-duel-selector-view">
                     <div class="md:col-span-5 text-center p-3 border border-dashed border-slate-800 rounded bg-slate-950/40">
-                        <span class="text-[10px] text-slate-500 block mb-1">PILOTO ATACANTE</span>
+                        <span class="text-[10px] text-slate-500 block mb-1">CONTRINCANTE A</span>
                         <span class="text-sm font-bold text-[#39ff14] font-mono" id="attacker-name-display">DESIGNACIÓN VACÍA</span>
                     </div>
                     <div class="md:col-span-2 text-center text-xl font-bold text-slate-700 orbitron">VS</div>
                     <div class="md:col-span-5 text-center p-3 border border-dashed border-slate-800 rounded bg-slate-950/40">
-                        <span class="text-[10px] text-slate-500 block mb-1">PILOTO DEFENSOR</span>
+                        <span class="text-[10px] text-slate-500 block mb-1">CONTRINCANTE B</span>
                         <span class="text-sm font-bold text-[#ff2a5f] font-mono" id="defender-name-display">DESIGNACIÓN VACÍA</span>
                     </div>
                 </div>
 
                 <div class="hidden flex flex-col gap-4" id="duel-combat-interface">
-                    <div class="bg-black border-l-4 border-yellow-500 rounded p-4 font-mono text-xs md:text-sm text-slate-200 shadow-inner" id="intercepted-quote">"Interceptando transmisión argumentativa..."</div>
-                    <div class="text-center py-1 hidden" id="wait-player-status"><span class="text-xs text-yellow-400 font-bold animate-pulse font-mono">📡 SEÑAL DISPARADA... EN ESPERA DEL MANDO TÁCTICO MÓVIL...</span></div>
+                    <div class="bg-black border-l-4 border-yellow-500 rounded p-4 font-mono text-xs md:text-sm text-slate-200 shadow-inner" id="intercepted-quote">"Transmitiendo pauta argumentativa..."</div>
+                    <div class="text-center py-1 hidden" id="wait-player-status"><span class="text-xs text-yellow-400 font-bold animate-pulse font-mono">📡 SEÑALES ENVIADAS. ESPERANDO RESPUESTA EN MILISEGUNDOS...</span></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="combat-choices-grid"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- VICTORIA GLOBAL BATTLE ROYALE -->
     <div id="section-general-victory" class="cyber-panel rounded-2xl p-8 text-center hidden flex flex-col items-center max-w-2xl mx-auto border-2 border-[#39ff14]">
         <span class="text-5xl mb-4">🏆</span>
         <h1 class="orbitron text-4xl font-black text-[#39ff14] uppercase tracking-widest mb-2">SOBREVIVIENTE ABSOLUTO</h1>
@@ -225,28 +258,24 @@
 </div>
 
 <script>
-    // BASE DE DATOS CURRICULAR INTEGRADA DE CONTENIDOS CHILENOS (1° A 4° MEDIO)
-    const DB_FALACIAS = [
-        // 1° MEDIO: RAZONAMIENTOS VÁLIDOS
-        { level: "1° Medio", category: "Razonamiento por Autoridad", examples: ["El Ministerio de Salud dictaminó el uso de mascarillas debido al alza de virus respiratorios, por ende es obligatorio acatar.", "El astrofísico José Maza afirma que la colonización de Marte requiere reactores compactos."], definition: "Se fundamenta la tesis citando el prestigio de un experto o institución especialista en la materia." },
-        { level: "1° Medio", category: "Razonamiento por Signos", examples: ["El paciente presenta fiebre alta, tos persistente y pérdida de olfato; es un cuadro viral denso.", "Las nubes cubren el cielo de Maipú y la presión barométrica bajó drásticamente; es inminente que lloverá."], definition: "Se utilizan indicios, síntomas o señales visibles para constatar la existencia de un fenómeno oculto." },
-        { level: "1° Medio", category: "Razonamiento por Analogía", examples: ["Si el modelo educativo de Islandia redujo el consumo de alcohol en jóvenes, aplicarlo en Chile dará resultados similares.", "Dirigir un diario escolar requiere la misma rigurosidad de revisión que administrar un periódico nacional comercial."], definition: "Establece una semejanza entre dos realidades distintas para concluir que lo válido para una lo es para la otra." },
-        
-        // 2° MEDIO: FALACIAS TRADICIONALES
-        { level: "2° Medio", category: "Ataque al Hombre (Ad Hominem)", examples: ["No escuchen la propuesta de reciclaje de Juan; él apenas terminó la enseñanza media.", "La senadora promueve leyes de salud, pero tiene un hermano que vende remedios; su opinión no vale."], definition: "Descalifica el argumento atacando directamente las características o la moral de la persona que lo emite." },
-        { level: "2° Medio", category: "Apelación a la Masa (Ad Populum)", examples: ["Esta bebida es la más vendida de Chile, por lo tanto, es la mejor medicina deportiva.", "Todo el mundo en redes sociales está funando a ese actor, así que es culpable indudablemente."], definition: "Valida un argumento basándose únicamente en que es la opinión mayoritaria o popular de la masa." },
-        { level: "2° Medio", category: "Generalización Apresurada", examples: ["Mi primo se compró un auto de esa marca y le falló a la semana. Todos esos autos son basura.", "Fui al consultorio una vez y la doctora me atendió tarde. En ese lugar nadie trabaja."], definition: "Concluye una regla general u obligatoria a partir de un número de casos extremadamente reducido o anecdótico." },
-        { level: "2° Medio", category: "Falso Dilema (Bipolaridad)", examples: ["O apoyas el nuevo uniforme del liceo, o estás de parte del vandalismo escolar.", "O digitalizamos las actas escolares esta semana o el colegio colapsará en el caos."], definition: "Reduce erróneamente las opciones posibles a solo dos alternativas extremas, ignorando los puntos intermedios." },
-        { level: "2° Medio", category: "Hombre de Paja", examples: ["Ellos propusieron reducir la carga de tareas los fines de semana. Lo que quieren es no estudiar nunca más.", "La directiva sugirió incorporar lecturas actuales, eso significa que quieren quemar los libros clásicos."], definition: "Caricaturiza o distorsiona el argumento del oponente para que sea más fácil de atacar y derribar." },
-        
-        // 3° MEDIO UNIDAD 2: MEDIOS Y POSVERDAD
-        { level: "3° Medio", category: "U2: Efecto de Encuadre (Framing)", examples: ["Un diario titula 'Manifestantes bloquean el tránsito' mientras otro publica 'Ciudadanos exigen derechos'.", "Un reportaje destaca el 'gasto excesivo del Estado' omitiendo que los fondos se destinaron a nuevos hospitales públicos."], definition: "Manipulación de la opinión pública al presentar la información desde un ángulo específico que resalta ciertos sesgos." },
-        { level: "3° Medio", category: "U2: Sesgo de Confirmación", examples: ["Un usuario de Twitter que bloquea todas las cuentas que piensan distinto y valida noticias falsas si apoyan su postura.", "Un estudiante que investiga un ensayo buscando solo fuentes que apoyen su hipótesis inicial, ignorando los datos reales."], definition: "Tendencia a buscar, interpretar y recordar únicamente la información que confirma nuestras creencias previas." },
-        { level: "3° Medio", category: "U2: Posverdad (Emoción vs Hecho)", examples: ["Una campaña digital basada en el miedo colectivo logra viralizarse por sobre los informes de las autoridades científicas.", "Un video editado en redes genera pánico sobre el desabastecimiento de agua a pesar de los datos de la sanitaria."], definition: "Distorsión deliberada de la realidad en la que los hechos objetivos tienen menos influencia que las emociones." },
+    function switchPedagogicalTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        ['btn-lvl-2medio', 'btn-lvl-3medio', 'btn-lvl-4medio'].forEach(id => {
+            const btn = document.getElementById(id);
+            btn.className = "bg-slate-900 border border-slate-700 text-slate-300 font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold hover:border-[#00f0ff]";
+        });
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('btn-' + tabId).className = "bg-slate-950 border border-amber-400 text-[#00f0ff] font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold";
+    }
 
-        // 4° MEDIO: SESGOS ALGORÍTMICOS Y DATA MINING
-        { level: "4° Medio", category: "U1: Burbujas de Filtro Algorítmicas", examples: ["La red social solo muestra videos que refuerzan los prejuicios del usuario, radicalizando su postura política.", "Dos personas buscan el mismo concepto político en Google en Maipú y reciben resultados completamente opuestos."], definition: "Aislamiento ideológico provocado por algoritmos personalizados que solo te muestran contenido afín a tus clics anteriores." },
-        { level: "4° Medio", category: "U1: Falacia del Francotirador", examples: ["Un candidato analiza miles de encuestas viejas, toma tres datos aislados y afirma que su gestión fue perfecta.", "Una empresa publica que su producto es 100% ecológico basándose en un estudio aislado que ellos mismos financiaron."], definition: "Consiste en pintar la diana después de disparar; forzar patrones o seleccionar datos convenientes ignorando el resto." }
+    const DB_FALACIAS = [
+        { level: "2° Medio", category: "Ataque al Hombre (Ad Hominem)", examples: ["No tomen en serio el análisis de ese tiktoker sobre el desempleo; si apenas tiene 15 años y juega Minecraft.", "La moderadora propone reglas, pero se sabe que antes la banearon de otro foro; su opinión no vale."], definition: "Descalifica el argumento atacando las condiciones o moral de la persona que lo emite." },
+        { level: "2° Medio", category: "Hombre de Paja", examples: ["Sugieres regular los celulares en salas y te responden: '¡O sea que quieres prohibir el uso de tecnología y volver a la edad de piedra!'.", "La pauta propone lecturas digitales cortas y la crítica publica: 'Quieren destruir y quemar todos los libros clásicos de Chile'."], definition: "Caricaturiza o distorsiona el argumento del oponente para que sea más fácil de atacar." },
+        { level: "2° Medio", category: "Falso Dilema", examples: ["O apoyas el baneo total de los emuladores en los laboratorios escolares o estás a favor de que saboteen las notas de todos.", "O automatizamos los reportes usando esta API privada este mes o el colegio colapsará en el caos burocrático."], definition: "Reduce las opciones de resolución a solo dos caminos extremos, ignorando los puntos intermedios." },
+        { level: "3° Medio", category: "Apelación a la Masa (Ad Populum)", examples: ["Este mod de optimización tiene un video en TikTok con 4 millones de vistas, por ende es seguro de usar.", "Todo el servidor de Discord está funando a ese administrador, así que es culpable indudablemente sin revisar logs."], definition: "Valida la certeza de una afirmación basándose en su popularidad, descargas o nivel de viralidad." },
+        { level: "3° Medio", category: "Sesgo de Confirmación", examples: ["Un alumno investiga la IA buscando portales catastróficos, ignorando los informes técnicos positivos de las universidades.", "Un usuario convencido de que los algoritmos de X lo persiguen, quien solo guarda tweets de cuentas con la misma sospecha."], definition: "Tendencia a asimilar y recordar solo la información que coincide con tus prejuicios." },
+        { level: "4° Medio", category: "Burbujas de Filtro Algorítmicas", examples: ["Dos compañeros sentados juntos buscan 'reforma procesal' en Google y el motor les devuelve respuestas ideológicas opuestas.", "El feed de YouTube aísla al usuario de los canales científicos, recomendándole solo videos conspirativos basados en sus interacciones."], definition: "Aislamiento ideológico provocado por sistemas que personalizan el contenido según tu historial." },
+        { level: "4° Medio", category: "Falacia del Francotirador", examples: ["Una plataforma de evaluación falla en dos ítems específicos. Un foro en Reddit publica: 'Este sistema fallará en todas las pautas de Chile'.", "Un candidato toma tres encuestas viejas de una base de mil registros para publicar que su aprobación es perfecta."], definition: "Selección maliciosa de datos que concuerdan con una teoría previa, ignorando el resto del universo estadístico." }
     ];
 
     const EMOJIS = ["🤖", "🚀", "🛸", "👾", "🛰️", "🎮", "🛡️", "⚙️", "📡", "🧠", "🦁", "🦊", "🐯", "🐨", "🦉", "🔮"];
@@ -254,7 +283,7 @@
 </script>
 
 <script>
-    // ARQUITECTURA SAGRADA DE CONEXIONES ENCAPSULADA (BROADCASTCHANNEL + PEERJS)
+    // ARQUITECTURA DE ENLACE DE RED (CONEXIONES ULTRA ESTABLES ENCAPSULADAS)
     let peer = null; let peerId = null; let connMap = new Map(); let isHost = true; let roomCode = "";
     let totalSalaHits = 0; let totalSalaErrors = 0;
     const studentRandomId = "STUDENT-" + Math.floor(100000 + Math.random() * 900000);
@@ -263,13 +292,8 @@
     function initNetworkSystem() {
         const urlParams = new URLSearchParams(window.location.search);
         const urlRoom = urlParams.get('room'); const role = urlParams.get('role');
-
-        if (role === 'player' || urlRoom) {
-            isHost = false; roomCode = urlRoom; setupStudentPlayerMode();
-        } else {
-            isHost = true; roomCode = "ROOM-" + Math.floor(1000 + Math.random() * 9000); setupTeacherHostMode();
-        }
-
+        if (role === 'player' || urlRoom) { isHost = false; roomCode = urlRoom; setupStudentPlayerMode(); } 
+        else { isHost = true; roomCode = "ROOM-" + Math.floor(1000 + Math.random() * 9000); setupTeacherHostMode(); }
         if (isHost && localBridge) {
             localBridge.onmessage = (event) => {
                 const { sender, target, data } = event.data;
@@ -291,23 +315,13 @@
         document.getElementById('classroom-status-pill').innerText = "CONECTANDO ANTENA...";
         try {
             peer = new Peer(roomCode, { debug: 1 });
-            peer.on('open', (id) => {
-                peerId = id;
-                document.getElementById('classroom-status-pill').innerText = "🟢 RADAR LOCAL + NUBE ACTIVO";
-                setupQRGenerator();
-            });
-            peer.on('error', (err) => {
-                document.getElementById('classroom-status-pill').innerText = "🟢 MODO LOCAL ESTABLE";
-                setupQRGenerator();
-            });
+            peer.on('open', (id) => { peerId = id; document.getElementById('classroom-status-pill').innerText = "🟢 RADAR LOCAL + NUBE ACTIVO"; setupQRGenerator(); });
+            peer.on('error', () => { document.getElementById('classroom-status-pill').innerText = "🟢 MODO LOCAL ESTABLE"; setupQRGenerator(); });
             peer.on('connection', (conn) => {
                 conn.on('data', (data) => { handleHostIncomingMessage(conn, data); });
                 conn.on('close', () => { removeStudentByPeerConnection(conn.peer); });
             });
-        } catch(e) {
-            document.getElementById('classroom-status-pill').innerText = "🟢 PUENTE LOCAL OPERATIVO";
-            setupQRGenerator();
-        }
+        } catch(e) { document.getElementById('classroom-status-pill').innerText = "🟢 PUENTE LOCAL OPERATIVO"; setupQRGenerator(); }
     }
 
     function setupStudentPlayerMode() {
@@ -324,14 +338,10 @@
     function joinClassroomAsStudent() {
         const nameInput = document.getElementById('mobile-name-input'); const name = nameInput.value.trim();
         if (name.length < 2) { alert("Ingresa un nombre válido."); return; }
-
         document.getElementById('mobile-join-panel').classList.add('hidden');
         document.getElementById('mobile-lobby-panel').classList.remove('hidden');
         document.getElementById('mobile-connected-name').innerText = `PILOTO: ${name.toUpperCase()}`;
-
-        if (localBridge) {
-            localBridge.postMessage({ sender: studentRandomId, target: roomCode, data: { type: 'JOIN', name: name } });
-        }
+        if (localBridge) { localBridge.postMessage({ sender: studentRandomId, target: roomCode, data: { type: 'JOIN', name: name } }); }
         try {
             peer = new Peer(studentRandomId);
             peer.on('open', () => {
@@ -352,7 +362,7 @@
                 conn.send({ type: 'WELCOME_ACK', status: 'registered' });
                 updateDashboardCounters(); triggerAlert(`📱 CONECTADO: ${data.name.toUpperCase()}`, true);
             }
-        } else if (data.type === 'ANSWER') { evaluateDuelResponse(data.answer); }
+        } else if (data.type === 'ANSWER') { evaluateDuelResponse(data.answer, conn.peer); }
     }
 
     function handleStudentIncomingMessage(data) {
@@ -360,51 +370,36 @@
             document.getElementById('mobile-lobby-panel').classList.add('hidden');
             document.getElementById('mobile-result-panel').classList.add('hidden');
             document.getElementById('mobile-action-panel').classList.remove('hidden');
-            document.getElementById('mobile-role-alert').innerText = data.role === 'ATTACKER' ? '⚡ ¡ATACAS! IDENTIFICA EL CONCEPTO' : '🛡️ ¡SITUACIÓN DE BOMBA! REVISA EL PROYECTOR';
             
-            // PROTOCOLO ALTA FIDELIDAD: VIBRACIÓN FÍSICA SEGURA EN CELULAR
-            if (data.role === 'ATTACKER' && navigator.vibrate) {
-                try { navigator.vibrate([200, 100, 200]); } catch(e) {}
-            }
+            if (navigator.vibrate) { try { navigator.vibrate([150, 80, 150]); } catch(e) {} }
 
             const optionsGrid = document.getElementById('mobile-options-grid'); optionsGrid.innerHTML = '';
-            if (data.role === 'ATTACKER') {
-                data.choices.forEach(choice => {
-                    const btn = document.createElement('button');
-                    btn.className = "bg-slate-900 border-2 border-[#00f0ff] hover:bg-cyan-950 text-white font-mono rounded-xl p-3 text-xs text-left transition-all";
-                    btn.innerText = choice; btn.onclick = () => sendAnswerToHost(choice);
-                    optionsGrid.appendChild(btn);
-                });
-            } else {
-                optionsGrid.innerHTML = `<div class="text-[11px] text-yellow-400 font-mono leading-relaxed uppercase">Modo Defensa. Si el oponente falla en el proyector, tu escudo resistirá la carga.</div>`;
-            }
-            let sLeft = 15; document.getElementById('mobile-timer').innerText = `${sLeft}s`;
+            data.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = "bg-slate-900 border-2 border-[#00f0ff] hover:bg-cyan-950 text-white font-mono rounded-xl p-3 text-xs text-left transition-all";
+                btn.innerText = choice; btn.onclick = () => sendAnswerToHost(choice);
+                optionsGrid.appendChild(btn);
+            });
+            document.getElementById('mobile-timer').innerText = `15s`;
         } else if (data.type === 'DUEL_END') {
             document.getElementById('mobile-action-panel').classList.add('hidden');
             document.getElementById('mobile-result-panel').classList.remove('hidden');
             
-            // PROTOCOLO BOMBA: VIBRACIÓN FUERTE EN CELULAR DEL DEFENSOR
-            if (!data.isCorrect && data.role === 'DEFENDER' && navigator.vibrate) {
-                try { navigator.vibrate([500, 150, 500]); } catch(e) {}
-            }
-
-            // ACTUALIZACIÓN DE BARRA DE ENERGÍA LOCAL
             document.getElementById('mobile-hp-bar').style.width = data.hp + '%';
             document.getElementById('mobile-hp-text').innerText = `SALUD: ${data.hp}%`;
 
-            const isWin = data.isCorrect;
+            const isWin = data.winnerPeer === studentRandomId;
             document.getElementById('mobile-result-icon').innerText = isWin ? "🎯" : "💥";
-            document.getElementById('mobile-result-title').innerText = isWin ? "EVALUACIÓN EXITOSA" : "IMPACTO DE BOMBA RECIBIDO";
+            document.getElementById('mobile-result-title').innerText = isWin ? "¡SISTEMA AGILIZADO!" : "IMPACTO ENEMIGO DETECTADO";
             
-            // RETROALIMENTACIÓN PEDAGÓGICA INTEGRADA EN EL CELULAR
             const feedbackBox = document.getElementById('mobile-feedback-box');
             if (isWin) {
-                feedbackBox.innerHTML = `<span class="text-[#39ff14] text-xs font-bold block mb-1">¡Buen análisis!</span><p class="text-[11px] text-slate-400">Mantienes tu posición de liderazgo en el ranking de la arena.</p>`;
+                feedbackBox.innerHTML = `<span class="text-[#39ff14] text-xs font-bold block mb-1">¡Ganaste por velocidad!</span><p class="text-[11px] text-slate-400">Tu respuesta ingresó primero al procesador central de la arena.</p>`;
             } else {
                 feedbackBox.innerHTML = `
-                    <span class="text-[#ff2a5f] text-xs font-bold block mb-1">Concepto fallido.</span>
+                    <span class="text-[#ff2a5f] text-xs font-bold block mb-1">El rival fue más rápido o acertó primero.</span>
                     <div class="text-yellow-400 text-[11px] font-bold mb-1">Correcto: ${data.correct}</div>
-                    <p class="text-[10px] text-slate-400 leading-normal">Glosario: ${data.definition}</p>
+                    <p class="text-[10px] text-slate-400 leading-normal">Definición: ${data.definition}</p>
                 `;
             }
         }
@@ -413,7 +408,7 @@
     function sendAnswerToHost(selectedAnswer) {
         const conn = connMap.get(roomCode); if (conn) conn.send({ type: 'ANSWER', answer: selectedAnswer });
         if (localBridge) localBridge.postMessage({ sender: studentRandomId, target: roomCode, data: { type: 'ANSWER', answer: selectedAnswer } });
-        document.getElementById('mobile-options-grid').innerHTML = `<div class="text-xs text-[#39ff14] font-mono animate-pulse uppercase">TRANSMITIENDO VECTOR DE RESPUESTA...</div>`;
+        document.getElementById('mobile-options-grid').innerHTML = `<div class="text-xs text-[#39ff14] font-mono animate-pulse uppercase">TRANSMITIENDO PAYLOAD A LA ARENA...</div>`;
     }
 
     function returnToLobby() { document.getElementById('mobile-result-panel').classList.add('hidden'); document.getElementById('mobile-lobby-panel').classList.remove('hidden'); }
@@ -421,16 +416,18 @@
 </script>
 
 <script>
-    // MOTOR GRÁFICO HTML5 CANVAS AVANZADO (FÍSICA DE ESTELAS, EXPLOSIONES Y POWER-UPS)
+    // ARQUITECTURA MOTOR GRÁFICO HTML5 CANVAS AVANZADO
     let canvas, ctx; let students = []; let missiles = []; let particles = []; let items = [];
     let activeAttackerId = null; let activeDefenderId = null;
     let duelTimer; let secondsLeft = 15; let currentQuiz = null;
+    let roundActive = false;
+    let comunidadFila = []; // Cola equilibrada para aleatoriedad matemática estricta de duelos sin repetición
 
     function initRadar() {
         canvas = document.getElementById('arena-canvas'); ctx = canvas.getContext('2d');
         resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-        canvas.addEventListener('click', handleRadarClick);
         startCanvasAnimation();
+        switchPedagogicalTab('lvl-2medio'); 
     }
 
     function resizeCanvas() {
@@ -438,69 +435,52 @@
         if (canvas && container) { canvas.width = container.clientWidth; canvas.height = container.clientHeight; }
     }
 
-    // CLASE PARTICULA PARA EXPLOSIONES RADIALES
     class Particle {
         constructor(x, y, color) {
-            this.x = x; this.y = y; this.color = color;
-            this.radius = Math.random() * 3 + 1;
-            let angle = Math.random() * Math.PI * 2;
-            let speed = Math.random() * 4 + 2;
+            this.x = x; this.y = y; this.color = color; this.radius = Math.random() * 3 + 1;
+            let angle = Math.random() * Math.PI * 2; let speed = Math.random() * 4 + 2;
             this.vx = Math.cos(angle) * speed; this.vy = Math.sin(angle) * speed;
             this.alpha = 1; this.isFinished = false;
         }
-        update() {
-            this.x += this.vx; this.y += this.vy; this.alpha -= 0.025;
-            if (this.alpha <= 0) this.isFinished = true;
-        }
-        draw() {
-            ctx.save(); ctx.globalAlpha = this.alpha;
-            ctx.fillStyle = this.color; ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fill();
-            ctx.restore();
-        }
+        update() { this.x += this.vx; this.y += this.vy; this.alpha -= 0.025; if (this.alpha <= 0) this.isFinished = true; }
+        draw() { ctx.save(); ctx.globalAlpha = this.alpha; ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
     }
 
-    // CLASE ITEM POWERUP PARA CURACIÓN ORBITAL
     class ItemPowerUp {
         constructor() {
             this.radius = 10; this.pulse = 0; this.isFinished = false;
             const w = canvas ? canvas.width : 750; const h = canvas ? canvas.height : 420;
-            this.x = Math.random() * (w * 0.6) + (w * 0.2);
-            this.y = Math.random() * (h * 0.6) + (h * 0.2);
-            this.vx = (Math.random() - 0.5) * 1; this.vy = (Math.random() - 0.5) * 1;
+            this.x = Math.random() * (w * 0.6) + (w * 0.2); this.y = Math.random() * (h * 0.6) + (h * 0.2);
+            // CORAZONES PASAN RÁPIDO: Incremento sustancial de los vectores vectoriales de velocidad
+            this.vx = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2.5);
+            this.vy = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2.5);
         }
         update() {
-            this.x += this.vx; this.y += this.vy; this.pulse += 0.05;
-            if (this.x < this.radius || this.x > canvas.width - this.radius) this.vx *= -1;
-            if (this.y < this.radius || this.y > canvas.height - this.radius) this.vy *= -1;
+            this.x += this.vx; this.y += this.vy; this.pulse += 0.08;
+            // Desvanecer el corazón si supera los límites físicos y no es alcanzado por los avatares
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.isFinished = true; }
         }
         draw() {
             ctx.save(); ctx.translate(this.x, this.y);
-            let sizeScale = 1 + Math.sin(this.pulse) * 0.15;
-            ctx.font = `${Math.floor(14 * sizeScale)}px sans-serif`;
-            ctx.textAlign = "center"; ctx.textBaseline = "middle";
+            let sizeScale = 1 + Math.sin(this.pulse) * 0.2;
+            ctx.font = `${Math.floor(15 * sizeScale)}px sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
             ctx.fillText("💚", 0, 0); ctx.restore();
         }
     }
 
-    // CORRECCIÓN HISTÓRICA DEL ERROR CRÍTICO DEL CANVAS DETECTADO EN LA CAPTURA DE PANTALLA
     class SpaceStudent {
         constructor(id, name) {
             this.id = id; this.name = name; this.emoji = EMOJIS[id % EMOJIS.length];
             this.hp = 100; this.isDead = false; this.isRealPlayer = false; this.peerId = null;
             this.radius = 18; this.pulse = Math.random() * Math.PI;
-            // ESTRUCTURA EXTENDIDA DE PUNTOS
             this.scorePoints = 0; this.winsCount = 0; this.lossesCount = 0;
             this.initPositions();
         }
-
         initPositions() {
-            const w = (canvas && canvas.width > 100) ? canvas.width : 750;
-            const h = (canvas && canvas.height > 100) ? canvas.height : 420;
+            const w = (canvas && canvas.width > 100) ? canvas.width : 750; const h = (canvas && canvas.height > 100) ? canvas.height : 420;
             this.x = Math.random() * (w * 0.7) + (w * 0.15); this.y = Math.random() * (h * 0.7) + (h * 0.15);
-            this.vx = (Math.random() - 0.5) * 1.3; this.vy = (Math.random() - 0.5) * 1.3;
+            this.vx = (Math.random() - 0.5) * 1.5; this.vy = (Math.random() - 0.5) * 1.5;
         }
-
         update() {
             if (this.isDead) return;
             this.x += this.vx; this.y += this.vy;
@@ -508,17 +488,15 @@
             if (this.y < this.radius || this.y > canvas.height - this.radius) this.vy *= -1;
             this.pulse += 0.04;
 
-            // COLECTOR DE BOTIQUINES POR DISTANCIA PITAGÓRICA
+            // Detección e interacción geométrica por alcance con los corazones veloces
             items.forEach(item => {
                 if (!item.isFinished && Math.hypot(this.x - item.x, this.y - item.y) <= this.radius + item.radius) {
-                    item.isFinished = true;
-                    this.hp = Math.min(100, this.hp + 25);
-                    triggerAlert(`💚 BOTIQUÍN: ${this.name.toUpperCase()} RECUPERÓ +25% SALUD`, true);
+                    item.isFinished = true; this.hp = Math.min(100, this.hp + 25);
+                    triggerAlert(`💚 REGENERACIÓN: ${this.name.toUpperCase()} RECOGIÓ BOTIQUÍN (+25%)`, true);
                     updateDashboardCounters();
                 }
             });
         }
-
         draw() {
             ctx.save(); ctx.translate(this.x, this.y);
             if (this.isDead) {
@@ -530,21 +508,12 @@
                 } else if (this.id === activeDefenderId) {
                     ctx.strokeStyle = "#ff2a5f"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, this.radius + 5, 0, Math.PI * 2); ctx.stroke();
                 }
-
-                // GEOMETRIA VECTORIAL SCI-FI AVANZADA
-                ctx.strokeStyle = "rgba(0, 240, 255, 0.4)"; ctx.lineWidth = 1;
+                ctx.strokeStyle = "rgba(0, 240, 255, 0.3)"; ctx.lineWidth = 1;
                 ctx.beginPath(); ctx.arc(0, 0, this.radius + 2 + Math.sin(this.pulse)*2, 0, Math.PI * 2); ctx.stroke();
-
-                // SOLUCIÓN AL ERROR DE 3 ARGUMENTOS MOSTRADO EN "Captura de pantalla 2026-07-07 233440.png"
-                ctx.fillStyle = "#0b101d"; ctx.beginPath(); 
-                ctx.arc(0, 0, this.radius, 0, Math.PI * 2); // <- ¡Corregido a 5 argumentos para evitar crash!
-                ctx.fill();
-                
+                ctx.fillStyle = "#0b101d"; ctx.beginPath(); ctx.arc(0, 0, this.radius, 0, Math.PI * 2); ctx.fill();
                 ctx.font = "13px sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(this.emoji, 0, -1);
-                
                 ctx.strokeStyle = this.hp > 50 ? "#39ff14" : "#ffea00"; ctx.lineWidth = 2.5;
                 ctx.beginPath(); ctx.arc(0, 0, this.radius, -Math.PI / 2, (-Math.PI / 2) + (Math.PI * 2 * (this.hp / 100))); ctx.stroke();
-
                 ctx.fillStyle = "#f1f5f9"; ctx.font = "bold 8px monospace"; ctx.fillText(this.name, 0, this.radius + 10);
             }
             ctx.restore();
@@ -561,17 +530,31 @@
         draw() { ctx.strokeStyle = this.color; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x - this.vx, this.y - this.vy); ctx.stroke(); }
     }
 
-    function handleRadarClick(e) {
-        const rect = canvas.getBoundingClientRect(); const clickX = e.clientX - rect.left; const clickY = e.clientY - rect.top;
-        for (let i = 0; i < students.length; i++) {
-            const s = students[i]; if (s.isDead) continue;
-            if (Math.hypot(clickX - s.x, clickY - s.y) <= s.radius + 15) {
-                if (activeAttackerId === null) { activeAttackerId = s.id; }
-                else if (activeAttackerId === s.id) { activeAttackerId = null; }
-                else { activeDefenderId = s.id; initCombatDuel(); }
-                updateDuelDisplay(); return;
-            }
+    // MECANISMO DE CONTROL: REGENERADOR DE COLA TOTALMENTE ALEATORIA SIN REPETICIÓN
+    function recalcularFilaDeDuelos() {
+        const vivos = students.filter(s => !s.isDead);
+        comunidadFila = vivos.map(s => s.id).sort(() => Math.random() - 0.5);
+    }
+
+    function launchRandomDuel() {
+        const alive = students.filter(s => !s.isDead);
+        if (alive.length < 2) { triggerAlert("🚫 FINAL DEL BATTLE ROYALE PROXIMO", false); return; }
+
+        // Si la cola está vacía o solo queda un residuo, se vuelve a llenar con los pilotos sobrevivientes
+        if (comunidadFila.length < 2) { recalcularFilaDeDuelos(); }
+
+        let idA = comunidadFila.pop();
+        let idB = comunidadFila.pop();
+
+        // Verificación de respaldo para evitar emparejamientos nulos o duplicados
+        if (idA === undefined || idB === undefined || idA === idB) {
+            recalcularFilaDeDuelos();
+            if (comunidadFila.length >= 2) { idA = comunidadFila.pop(); idB = comunidadFila.pop(); } 
+            else { idA = alive[0].id; idB = alive[1].id; }
         }
+
+        activeAttackerId = idA; activeDefenderId = idB;
+        updateDuelDisplay(); initCombatDuel();
     }
 
     function updateDuelDisplay() {
@@ -582,128 +565,119 @@
 
     function initCombatDuel() {
         if (activeAttackerId === null || activeDefenderId === null) return;
-        const attacker = students.find(s => s.id === activeAttackerId); const defender = students.find(s => s.id === activeDefenderId);
-        if (!attacker || !defender) return;
+        const playerA = students.find(s => s.id === activeAttackerId); const playerB = students.find(s => s.id === activeDefenderId);
+        if (!playerA || !playerB) return;
 
+        roundActive = true; 
         document.getElementById('pre-duel-selector-view').classList.add('hidden');
         document.getElementById('duel-combat-interface').classList.remove('hidden');
-        document.getElementById('duel-header-info').innerHTML = `Fijados: <b class="text-[#39ff14]">${attacker.name}</b> V/S <b class="text-[#ff2a5f]">${defender.name}</b>`;
+        document.getElementById('duel-header-info').innerHTML = `Modo Simultáneo: <b class="text-[#39ff14]">${playerA.name}</b> VS <b class="text-[#ff2a5f]">${playerB.name}</b>`;
 
         const randomCategoryObj = DB_FALACIAS[Math.floor(Math.random() * DB_FALACIAS.length)];
         const correctCategory = randomCategoryObj.category;
         const randomQuote = randomCategoryObj.examples[Math.floor(Math.random() * randomCategoryObj.examples.length)];
-        const incorrects = DB_FALACIAS.filter(f => f.category !== correctCategory).map(f => f.category).sort(() => Math.random() - 0.5).slice(0, 3);
+        
+        const incorrects = [...new Set(DB_FALACIAS.filter(f => f.category !== correctCategory).map(f => f.category))].sort(() => Math.random() - 0.5).slice(0, 3);
         const allChoices = [correctCategory, ...incorrects].sort(() => Math.random() - 0.5);
 
         currentQuiz = { quote: randomQuote, correct: correctCategory, definition: randomCategoryObj.definition, level: randomCategoryObj.level };
-        document.getElementById('intercepted-quote').innerText = `💬 [${randomCategoryObj.level}] Enunciado: "${randomQuote}"`;
+        document.getElementById('intercepted-quote').innerText = `💬 RETO SIMULTÁNEO [${randomCategoryObj.level}]: "${randomQuote}"`;
 
         const choicesGrid = document.getElementById('combat-choices-grid'); choicesGrid.innerHTML = '';
 
-        if (attacker.isRealPlayer && attacker.peerId) {
-            document.getElementById('wait-player-status').classList.remove('hidden');
-            if (localBridge) {
-                localBridge.postMessage({ sender: roomCode, target: attacker.peerId, data: { type: 'DUEL_START', role: 'ATTACKER', quote: randomQuote, choices: allChoices } });
-                if (defender.isRealPlayer && defender.peerId) {
-                    localBridge.postMessage({ sender: roomCode, target: defender.peerId, data: { type: 'DUEL_START', role: 'DEFENDER', quote: randomQuote, choices: allChoices } });
+        // SINCRO SIMULTÁNEA ABSOLUTA: Despacho del payload a ambos celulares al mismo milisegundo
+        students.forEach(s => {
+            if (s.isRealPlayer && s.peerId && (s.id === playerA.id || s.id === playerB.id)) {
+                if (localBridge) {
+                    localBridge.postMessage({ sender: roomCode, target: s.peerId, data: { type: 'DUEL_START', choices: allChoices } });
                 }
             }
-        } else {
-            document.getElementById('wait-player-status').classList.add('hidden');
-            allChoices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = "bg-slate-900 border border-slate-700 text-slate-300 rounded-xl p-3 text-left text-xs hover:border-[#00f0ff] transition-all font-mono hover:text-[#00f0ff]";
-                btn.innerText = choice; btn.onclick = () => evaluateDuelResponse(choice);
-                choicesGrid.appendChild(btn);
-            });
-        }
+        });
+
+        // Interfaz de control de respaldo para el PC si juegan bots simulados
+        document.getElementById('wait-player-status').classList.remove('hidden');
+        allChoices.forEach(choice => {
+            const btn = document.createElement('button');
+            btn.className = "bg-slate-900 border border-slate-700 text-slate-300 rounded-xl p-3 text-left text-xs hover:border-[#00f0ff] transition-all font-mono hover:text-[#00f0ff]";
+            btn.innerText = choice; btn.onclick = () => evaluateDuelResponse(choice, "PC-HOST");
+            choicesGrid.appendChild(btn);
+        });
 
         secondsLeft = 15; document.getElementById('countdown-timer').innerText = `${secondsLeft}s`;
         if (duelTimer) clearInterval(duelTimer);
-        duelTimer = setInterval(() => { secondsLeft--; document.getElementById('countdown-timer').innerText = `${secondsLeft}s`; if (secondsLeft <= 0) { clearInterval(duelTimer); evaluateDuelResponse(""); } }, 1000);
+        duelTimer = setInterval(() => { secondsLeft--; document.getElementById('countdown-timer').innerText = `${secondsLeft}s`; if (secondsLeft <= 0) { clearInterval(duelTimer); evaluateDuelResponse("", "TIMEOUT"); } }, 1000);
     }
 
-    function evaluateDuelResponse(selected) {
-        if (duelTimer) clearInterval(duelTimer);
-        const attacker = students.find(s => s.id === activeAttackerId); const defender = students.find(s => s.id === activeDefenderId);
-        if (!attacker || !defender) return;
-
-        const isCorrect = selected === currentQuiz.correct;
+    // ARBITRAJE DE VELOCIDAD POR EMISIÓN DE CONEXIÓN DE MANDO MÓVIL
+    function evaluateDuelResponse(selected, senderPeerId) {
+        if (!roundActive) return; // BLOQUEO: Si el round ya cerró por una respuesta previa, se ignoran los rezagados
         
-        // PROTOCOLO 4 VIDAS MINIMAS: DAÑO FIJO A 25 PUNTOS (SOPORTA 4 GOLPES DE 100 HP)
-        let baseDamage = 25;
+        const playerA = students.find(s => s.id === activeAttackerId); const playerB = students.find(s => s.id === activeDefenderId);
+        if (!playerA || !playerB) return;
 
-        if (isCorrect) {
-            totalSalaHits++;
-            attacker.scorePoints += 10; attacker.winsCount++; defender.lossesCount++;
-            defender.hp -= baseDamage;
-            if (defender.hp <= 0) { defender.hp = 0; defender.isDead = true; }
-            missiles.push(new ProyectilMissile(attacker.x, attacker.y, defender.x, defender.y, '#39ff14'));
-            
-            // DISPARADOR DE PARTICULAS EXPLOSIVAS EN COORDENADAS DEL OBJETIVO
-            for(let p=0; p<15; p++) particles.push(new Particle(defender.x, defender.y, '#39ff14'));
-            triggerAlert(`🎯 ¡CORRECTO! ${attacker.name} causó impacto de bomba en ${defender.name}`, true);
+        roundActive = false; 
+        if (duelTimer) clearInterval(duelTimer);
+
+        let winner = null; let loser = null;
+        const isCorrect = selected === currentQuiz.correct;
+
+        if (senderPeerId === "TIMEOUT") {
+            triggerAlert("⏳ TIEMPO AGOTADO: AMBOS ESCUDOS RESISTIERON", false);
         } else {
-            totalSalaErrors++;
-            attacker.lossesCount++; attacker.scorePoints = Math.max(0, attacker.scorePoints - 5);
-            attacker.hp -= baseDamage;
-            if (attacker.hp <= 0) { attacker.hp = 0; attacker.isDead = true; }
-            missiles.push(new ProyectilMissile(defender.x, defender.y, attacker.x, attacker.y, '#ff2a5f'));
-            
-            for(let p=0; p<15; p++) particles.push(new Particle(attacker.x, attacker.y, '#ff2a5f'));
-            triggerAlert(`💥 ¡ERROR! Contragolpe explosivo directo hacia ${attacker.name}`, false);
+            // Vincular al estudiante que gatilló el paquete de datos en milisegundos
+            let responder = students.find(s => s.peerId === senderPeerId);
+            if (!responder) { responder = (Math.random() > 0.5) ? playerA : playerB; } // Fallback seguro para bots
+
+            if (responder.id === playerA.id) { winner = playerA; loser = playerB; } else { winner = playerB; loser = playerA; }
+
+            let baseDamage = 25; // 4 impactos netos regulados de salud
+
+            if (isCorrect) {
+                totalSalaHits++; winner.scorePoints += 15; winner.winsCount++; loser.lossesCount++;
+                loser.hp -= baseDamage; if (loser.hp <= 0) { loser.hp = 0; loser.isDead = true; }
+                missiles.push(new ProyectilMissile(winner.x, winner.y, loser.x, loser.y, '#39ff14'));
+                for(let p=0; p<15; p++) particles.push(new Particle(loser.x, loser.y, '#39ff14'));
+                triggerAlert(`🎯 ¡IMPACTO SIMULTÁNEO! ${winner.name} acertó primero y dañó a ${loser.name}`, true);
+            } else {
+                totalSalaErrors++; winner.lossesCount++; winner.scorePoints = Math.max(0, winner.scorePoints - 5);
+                winner.hp -= baseDamage; if (winner.hp <= 0) { winner.hp = 0; winner.isDead = true; }
+                missiles.push(new ProyectilMissile(loser.x, loser.y, winner.x, winner.y, '#ff2a5f'));
+                for(let p=0; p<15; p++) particles.push(new Particle(winner.x, winner.y, '#ff2a5f'));
+                triggerAlert(`💥 ¡CONTRAGOLPE POR ERROR! ${winner.name} falló el análisis y recibió daño`, false);
+            }
         }
 
-        // DESPACHO DE PAYLOAD COMPLETO A LA RED PARA CELULARES
+        // Notificación de cierre de transmisión y actualización de interfaces móviles
         students.forEach(s => {
             if (s.isRealPlayer && s.peerId && localBridge) {
                 localBridge.postMessage({ 
                     sender: roomCode, target: s.peerId, 
-                    data: { 
-                        type: 'DUEL_END', role: (s.id === activeAttackerId ? 'ATTACKER' : 'DEFENDER'),
-                        isCorrect: isCorrect, hp: s.hp, correct: currentQuiz.correct, definition: currentQuiz.definition 
-                    } 
+                    data: { type: 'DUEL_END', winnerPeer: (isCorrect && winner ? winner.peerId : null), hp: s.hp, correct: currentQuiz.correct, definition: currentQuiz.definition } 
                 });
             }
         });
 
         activeAttackerId = null; activeDefenderId = null;
-        setTimeout(() => { updateDashboardCounters(); checkBattleRoyaleVictory(); resetDuelSelectorUI(); }, 1200);
+        setTimeout(() => { updateDashboardCounters(); checkBattleRoyaleVictory(); resetDuelSelectorUI(); }, 1400);
     }
 
     function resetDuelSelectorUI() {
         document.getElementById('pre-duel-selector-view').classList.remove('hidden');
         document.getElementById('duel-combat-interface').classList.add('hidden');
-        document.getElementById('duel-header-info').innerText = "Cabina libre. Selecciona un nuevo par de avatares.";
+        document.getElementById('duel-header-info').innerText = "Radar libre. Cola de duelos secuencial resguardada.";
         updateDuelDisplay();
-    }
-
-    function launchRandomDuel() {
-        const alive = students.filter(s => !s.isDead); if (alive.length < 2) return;
-        const att = alive[Math.floor(Math.random() * alive.length)]; let def = alive[Math.floor(Math.random() * alive.length)];
-        while (def.id === att.id) { def = alive[Math.floor(Math.random() * alive.length)]; }
-        activeAttackerId = att.id; activeDefenderId = def.id; updateDuelDisplay(); initCombatDuel();
     }
 
     function startCanvasAnimation() {
         function loop() {
-            // PROTOCOLO OPTIMIZACIÓN VISUAL: EFECTO ESTELA POR OPACIDAD PARCIAL DEL FONDO
             ctx.fillStyle = "rgba(3, 7, 18, 0.16)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // GENERACIÓN DE BOTIQUINES MEDICOS ORBITALES
-            if (Math.random() < 0.002 && items.length < 2) {
-                items.push(new ItemPowerUp());
-            }
-
-            // Renderizado secuencial de arrays locales
+            // Generación controlada de botiquines rápidos
+            if (Math.random() < 0.003 && items.length < 2) { items.push(new ItemPowerUp()); }
             items = items.filter(item => !item.isFinished);
             items.forEach(item => { item.update(); item.draw(); });
-
             students.forEach(s => { s.update(); s.draw(); });
-
             particles = particles.filter(p => !p.isFinished);
             particles.forEach(p => { p.update(); p.draw(); });
-
             for (let i = missiles.length - 1; i >= 0; i--) {
                 missiles[i].update(); missiles[i].draw(); if (missiles[i].isFinished) missiles.splice(i, 1);
             }
@@ -716,6 +690,7 @@
         resizeCanvas();
         setTimeout(() => {
             students = DEFAULT_NAMES.map((name, idx) => new SpaceStudent(idx, name));
+            recalcularFilaDeDuelos();
             updateDashboardCounters();
         }, 50);
     }
@@ -725,14 +700,11 @@
         document.getElementById('alive-counter').innerText = totalVivos;
         document.getElementById('dead-counter').innerText = students.filter(s => s.isDead).length;
         document.getElementById('global-alive-badge').innerText = `${totalVivos} PILOTOS VIVOS`;
-        
         document.getElementById('stat-total-hits').innerText = totalSalaHits;
         document.getElementById('stat-total-errors').innerText = totalSalaErrors;
 
-        // ALGORITMO RANKING COMPACTO EN TIEMPO REAL
         const sorted = [...students].sort((a, b) => {
-            if (a.isDead && !b.isDead) return 1;
-            if (!a.isDead && b.isDead) return -1;
+            if (a.isDead && !b.isDead) return 1; if (!a.isDead && b.isDead) return -1;
             return b.scorePoints - a.scorePoints;
         });
 
@@ -768,12 +740,8 @@
 
     function copySessionLink() { 
         const link = window.generatedCompanionUrl || window.location.href;
-        const tempInput = document.createElement("input");
-        tempInput.value = link;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
+        const tempInput = document.createElement("input"); tempInput.value = link;
+        document.body.appendChild(tempInput); tempInput.select(); document.execCommand('copy'); document.body.removeChild(tempInput);
         triggerAlert("🔗 ENLACE COPIADO", true); 
     }
 
@@ -786,7 +754,7 @@
     function resetWholeArena() {
         document.getElementById('section-general-victory').classList.add('hidden');
         document.getElementById('host-main-interface').classList.remove('hidden');
-        students = []; items = []; particles = []; totalSalaHits = 0; totalSalaErrors = 0;
+        students = []; items = []; particles = []; totalSalaHits = 0; totalSalaErrors = 0; comunidadFila = [];
         updateDashboardCounters(); resetDuelSelectorUI(); loadDefaultChileanCourse();
     }
 
