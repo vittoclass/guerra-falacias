@@ -80,12 +80,12 @@
                 <button onclick="switchPedagogicalTab('lvl-4medio')" id="btn-lvl-4medio" class="bg-slate-900 border border-slate-700 text-slate-300 font-mono text-[10px] md:text-xs py-3 rounded-xl transition-all uppercase tracking-wider font-bold hover:border-[#00f0ff]">🧠 4to Medio</button>
             </div>
 
-            <div class="bg-black/90 border border-slate-800 rounded-xl p-5 min-h-[180px] text-xs space-y-4">
+            <div class="bg-black/90 border border-slate-800 rounded-xl p-5 min-h-[140px] text-xs space-y-4">
                 <div id="lvl-2medio" class="tab-content active font-mono space-y-3">
                     <div>
                         <div class="flex items-center gap-2 mb-1"><span class="bg-cyan-950 text-[#00f0ff] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 1</span> <b class="text-white">Ataque al Hombre (Ad Hominem)</b></div>
-                        <p class="text-slate-400">Descalificar un argumento atacando directamente las condiciones o moral del emisor en vez de sus ideas.</p>
-                        <span class="text-cyan-400 text-[10px] block mt-0.5">🌐 Ejemplo: "No pesquen el hilo de ese loco sobre transporte urbano, si apenas tiene 15 años y juega Minecraft."</span>
+                        <p class="text-slate-400">Descalificar un argumento atacando directamente la moral o condiciones del emisor en vez de sus ideas.</p>
+                        <span class="text-cyan-400 text-[10px] block mt-0.5">🌐 Ejemplo: "No escuches la opinión de ese streamer sobre transporte urbano; apenas tiene 15 años y juega Minecraft."</span>
                     </div>
                     <hr class="border-slate-900">
                     <div>
@@ -98,7 +98,7 @@
                 <div id="lvl-3medio" class="tab-content font-mono space-y-3">
                     <div>
                         <div class="flex items-center gap-2 mb-1"><span class="bg-emerald-950 text-[#39ff14] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 3</span> <b class="text-white">Apelación a la Masa (Ad Populum)</b></div>
-                        <p class="text-slate-400">Validar la veracidad de un dato o software basándose exclusivamente en su nivel de viralidad o descargas.</p>
+                        <p class="text-slate-400">Validar la veracidad de una premisa o software basándose exclusivamente en su nivel de viralidad o descargas.</p>
                         <span class="text-emerald-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Este bot de inversión tiene un video en TikTok con 4 millones de reproducciones, por ende es 100% real y seguro."</span>
                     </div>
                     <hr class="border-slate-900">
@@ -113,13 +113,13 @@
                     <div>
                         <div class="flex items-center gap-2 mb-1"><span class="bg-rose-950 text-[#ff2a5f] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 5</span> <b class="text-white">Burbujas de Filtro Algorítmicas</b></div>
                         <p class="text-slate-400">Aislamiento ideológico provocado por algoritmos que personalizan tus feeds según tus clics históricos.</p>
-                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Dos alumnos buscan el mismo concepto social en Google en Maipú y reciben respuestas ideológicas opuestas."</span>
+                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Two users search 'reforma procesal' on Google and receive completely different ideological links based on logs."</span>
                     </div>
                     <hr class="border-slate-900">
                     <div>
                         <div class="flex items-center gap-2 mb-1"><span class="bg-rose-950 text-[#ff2a5f] text-[9px] font-bold px-1.5 py-0.5 rounded orbitron">MÓDULO 6</span> <b class="text-white">Falacia del Francotirador</b></div>
                         <p class="text-slate-400">Seleccionar quirúrgicamente datos aislados que favorecen tu hipótesis, ignorando la estadística completa.</p>
-                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Se detecta un error de traducción en una IA, y un foro sentencia en Twitch: 'Este software es inservible y fallará siempre'."</span>
+                        <span class="text-rose-400 text-[10px] block mt-0.5">🌐 Ejemplo: "Se detecta un error menor en una IA, y un foro publica: 'Este software es inservible y fallará siempre'."</span>
                     </div>
                 </div>
             </div>
@@ -148,10 +148,10 @@
 
         <div id="mobile-action-panel" class="hidden cyber-panel rounded-xl p-6 border-2 border-yellow-500 text-center pulse-fast">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-4">
-                <span class="text-xs text-yellow-500 font-bold orbitron">⚠️ DUELO VELOCIDAD SIMULTÁNEO</span>
+                <span class="text-xs text-yellow-500 font-bold orbitron">⚠️ RETO SIMULTÁNEO VELOCIDAD</span>
                 <span class="text-xs text-[#00f0ff] font-bold orbitron" id="mobile-timer">15s</span>
             </div>
-            <p class="text-sm font-black text-white mb-3 orbitron tracking-wide">¡GANA EL PRIMERO QUE RESPONDA BIEN!</p>
+            <p class="text-xs font-bold text-slate-300 mb-3 font-mono text-left" id="mobile-quote-text">Leyendo enunciado...</p>
             <div class="grid grid-cols-1 gap-2" id="mobile-options-grid"></div>
         </div>
         
@@ -221,10 +221,10 @@
 
             <div class="cyber-panel rounded-2xl p-5" id="action-panel">
                 <div class="flex justify-center mb-4">
-                    <button onclick="launchRandomDuel()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-black uppercase orbitron px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all text-xs">⚔️ INICIAR COMBATE SIMULTÁNEO ALEATORIO</button>
+                    <button onclick="launchRandomDuel()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-black uppercase orbitron px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all text-xs">⚔️ INICIAR COMBATE SIMULTÁNEO</button>
                 </div>
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-4">
-                    <div class="text-xs text-slate-400 font-mono" id="duel-header-info">Presiona el botón superior. Cola equilibrada sin repetición activada.</div>
+                    <div class="text-xs text-slate-400 font-mono" id="duel-header-info">Presiona el botón superior para forzar emparejamiento por cola sin repetición.</div>
                     <div class="bg-slate-900 border border-[#00f0ff] rounded-lg px-3 py-1 flex items-center gap-2"><span class="text-[10px] text-slate-400 font-mono">TIEMPO:</span><span class="orbitron font-bold text-sm text-[#00f0ff]" id="countdown-timer">15s</span></div>
                 </div>
 
@@ -241,8 +241,8 @@
                 </div>
 
                 <div class="hidden flex flex-col gap-4" id="duel-combat-interface">
-                    <div class="bg-black border-l-4 border-yellow-500 rounded p-4 font-mono text-xs md:text-sm text-slate-200 shadow-inner" id="intercepted-quote">"Transmitiendo pauta argumentativa..."</div>
-                    <div class="text-center py-1 hidden" id="wait-player-status"><span class="text-xs text-yellow-400 font-bold animate-pulse font-mono">📡 SEÑALES ENVIADAS. ESPERANDO RESPUESTA EN MILISEGUNDOS...</span></div>
+                    <div class="bg-black border-l-4 border-yellow-500 rounded p-4 font-mono text-xs md:text-sm text-slate-200 shadow-inner" id="intercepted-quote">"Transmitiendo pauta..."</div>
+                    <div class="text-center py-1 hidden" id="wait-player-status"><span class="text-xs text-yellow-400 font-bold animate-pulse font-mono">📡 SEÑAL EMITIDA. LOS BOTONES DEBEN ESTAR EN LOS MÓVILES...</span></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="combat-choices-grid"></div>
                 </div>
             </div>
@@ -275,7 +275,7 @@
         { level: "3° Medio", category: "Apelación a la Masa (Ad Populum)", examples: ["Este mod de optimización tiene un video en TikTok con 4 millones de vistas, por ende es seguro de usar.", "Todo el servidor de Discord está funando a ese administrador, así que es culpable indudablemente sin revisar logs."], definition: "Valida la certeza de una afirmación basándose en su popularidad, descargas o nivel de viralidad." },
         { level: "3° Medio", category: "Sesgo de Confirmación", examples: ["Un alumno investiga la IA buscando portales catastróficos, ignorando los informes técnicos positivos de las universidades.", "Un usuario convencido de que los algoritmos de X lo persiguen, quien solo guarda tweets de cuentas con la misma sospecha."], definition: "Tendencia a asimilar y recordar solo la información que coincide con tus prejuicios." },
         { level: "4° Medio", category: "Burbujas de Filtro Algorítmicas", examples: ["Dos compañeros sentados juntos buscan 'reforma procesal' en Google y el motor les devuelve respuestas ideológicas opuestas.", "El feed de YouTube aísla al usuario de los canales científicos, recomendándole solo videos conspirativos basados en sus interacciones."], definition: "Aislamiento ideológico provocado por sistemas que personalizan el contenido según tu historial." },
-        { level: "4° Medio", category: "Falacia del Francotirador", examples: ["Una plataforma de evaluación falla en dos ítems específicos. Un foro en Reddit publica: 'Este sistema fallará en todas las pautas de Chile'.", "Un candidato toma tres encuestas viejas de una base de mil registros para publicar que su aprobación es perfecta."], definition: "Selección maliciosa de datos que concuerdan con una teoría previa, ignorando el resto del universo estadístico." }
+        { level: "4° Medio", category: "Falacia del Francotirador", examples: ["Una plataforma de evaluación falla en dos ítems específicos. Un foro en Reddit publica: 'Este sistema fallará en todas las pautas de Chile'.", "Un candidato toma tres encuestas viejas de una base de datos de mil registros para publicar que su aprobación es perfecta."], definition: "Selección maliciosa de datos que concuerdan con una teoría previa, ignorando el resto del universo estadístico." }
     ];
 
     const EMOJIS = ["🤖", "🚀", "🛸", "👾", "🛰️", "🎮", "🛡️", "⚙️", "📡", "🧠", "🦁", "🦊", "🐯", "🐨", "🦉", "🔮"];
@@ -283,7 +283,7 @@
 </script>
 
 <script>
-    // ARQUITECTURA DE ENLACE DE RED (CONEXIONES ULTRA ESTABLES ENCAPSULADAS)
+    // ARQUITECTURA CORE DE RED (CAPA SAGRADA REPARADA)
     let peer = null; let peerId = null; let connMap = new Map(); let isHost = true; let roomCode = "";
     let totalSalaHits = 0; let totalSalaErrors = 0;
     const studentRandomId = "STUDENT-" + Math.floor(100000 + Math.random() * 900000);
@@ -365,41 +365,47 @@
         } else if (data.type === 'ANSWER') { evaluateDuelResponse(data.answer, conn.peer); }
     }
 
+    // DESEMPAQUETADO ESTABLE EXCLUSIVO DE MANDO DIGITAL MÓVIL
     function handleStudentIncomingMessage(data) {
-        if (data.type === 'DUEL_START') {
+        // Normalización estructural de payloads de red cruzados
+        let payload = data.data ? data.data : data;
+
+        if (payload.type === 'DUEL_START') {
             document.getElementById('mobile-lobby-panel').classList.add('hidden');
             document.getElementById('mobile-result-panel').classList.add('hidden');
             document.getElementById('mobile-action-panel').classList.remove('hidden');
             
-            if (navigator.vibrate) { try { navigator.vibrate([150, 80, 150]); } catch(e) {} }
+            if (navigator.vibrate) { try { navigator.vibrate([100, 50, 100]); } catch(e) {} }
+
+            // Inyectar el enunciado directamente en la pantalla de cada celular en disputa
+            document.getElementById('mobile-quote-text').innerText = `ENUNCIADO: "${payload.quote}"`;
 
             const optionsGrid = document.getElementById('mobile-options-grid'); optionsGrid.innerHTML = '';
-            data.choices.forEach(choice => {
+            payload.choices.forEach(choice => {
                 const btn = document.createElement('button');
-                btn.className = "bg-slate-900 border-2 border-[#00f0ff] hover:bg-cyan-950 text-white font-mono rounded-xl p-3 text-xs text-left transition-all";
+                btn.className = "bg-slate-900 border-2 border-[#00f0ff] hover:bg-cyan-950 text-white font-mono rounded-xl p-3 text-xs text-left transition-all w-full";
                 btn.innerText = choice; btn.onclick = () => sendAnswerToHost(choice);
                 optionsGrid.appendChild(btn);
             });
-            document.getElementById('mobile-timer').innerText = `15s`;
-        } else if (data.type === 'DUEL_END') {
+        } else if (payload.type === 'DUEL_END') {
             document.getElementById('mobile-action-panel').classList.add('hidden');
             document.getElementById('mobile-result-panel').classList.remove('hidden');
             
-            document.getElementById('mobile-hp-bar').style.width = data.hp + '%';
-            document.getElementById('mobile-hp-text').innerText = `SALUD: ${data.hp}%`;
+            document.getElementById('mobile-hp-bar').style.width = payload.hp + '%';
+            document.getElementById('mobile-hp-text').innerText = `SALUD: ${payload.hp}%`;
 
-            const isWin = data.winnerPeer === studentRandomId;
+            const isWin = payload.winnerPeer === studentRandomId;
             document.getElementById('mobile-result-icon').innerText = isWin ? "🎯" : "💥";
-            document.getElementById('mobile-result-title').innerText = isWin ? "¡SISTEMA AGILIZADO!" : "IMPACTO ENEMIGO DETECTADO";
+            document.getElementById('mobile-result-title').innerText = isWin ? "¡SISTEMA AGILIZADO!" : "IMPACTO ENEMIGO";
             
             const feedbackBox = document.getElementById('mobile-feedback-box');
             if (isWin) {
-                feedbackBox.innerHTML = `<span class="text-[#39ff14] text-xs font-bold block mb-1">¡Ganaste por velocidad!</span><p class="text-[11px] text-slate-400">Tu respuesta ingresó primero al procesador central de la arena.</p>`;
+                feedbackBox.innerHTML = `<span class="text-[#39ff14] text-xs font-bold block mb-1">¡Ganaste el round!</span><p class="text-[11px] text-slate-400">Tu vector ingresó primero al procesador central de la arena.</p>`;
             } else {
                 feedbackBox.innerHTML = `
-                    <span class="text-[#ff2a5f] text-xs font-bold block mb-1">El rival fue más rápido o acertó primero.</span>
-                    <div class="text-yellow-400 text-[11px] font-bold mb-1">Correcto: ${data.correct}</div>
-                    <p class="text-[10px] text-slate-400 leading-normal">Definición: ${data.definition}</p>
+                    <span class="text-[#ff2a5f] text-xs font-bold block mb-1">El oponente fue más veloz o acertó.</span>
+                    <div class="text-yellow-400 text-[11px] font-bold mb-1">Correcto: ${payload.correct}</div>
+                    <p class="text-[10px] text-slate-400 leading-normal">Definición: ${payload.definition}</p>
                 `;
             }
         }
@@ -408,7 +414,7 @@
     function sendAnswerToHost(selectedAnswer) {
         const conn = connMap.get(roomCode); if (conn) conn.send({ type: 'ANSWER', answer: selectedAnswer });
         if (localBridge) localBridge.postMessage({ sender: studentRandomId, target: roomCode, data: { type: 'ANSWER', answer: selectedAnswer } });
-        document.getElementById('mobile-options-grid').innerHTML = `<div class="text-xs text-[#39ff14] font-mono animate-pulse uppercase">TRANSMITIENDO PAYLOAD A LA ARENA...</div>`;
+        document.getElementById('mobile-options-grid').innerHTML = `<div class="text-xs text-[#39ff14] font-mono animate-pulse uppercase py-2">TRANSMITIENDO PAYLOAD CENTRAL...</div>`;
     }
 
     function returnToLobby() { document.getElementById('mobile-result-panel').classList.add('hidden'); document.getElementById('mobile-lobby-panel').classList.remove('hidden'); }
@@ -416,12 +422,12 @@
 </script>
 
 <script>
-    // ARQUITECTURA MOTOR GRÁFICO HTML5 CANVAS AVANZADO
+    // MOTOR GRÁFICO HTML5 CANVAS AVANZADO
     let canvas, ctx; let students = []; let missiles = []; let particles = []; let items = [];
     let activeAttackerId = null; let activeDefenderId = null;
     let duelTimer; let secondsLeft = 15; let currentQuiz = null;
     let roundActive = false;
-    let comunidadFila = []; // Cola equilibrada para aleatoriedad matemática estricta de duelos sin repetición
+    let comunidadFila = []; 
 
     function initRadar() {
         canvas = document.getElementById('arena-canvas'); ctx = canvas.getContext('2d');
@@ -451,13 +457,11 @@
             this.radius = 10; this.pulse = 0; this.isFinished = false;
             const w = canvas ? canvas.width : 750; const h = canvas ? canvas.height : 420;
             this.x = Math.random() * (w * 0.6) + (w * 0.2); this.y = Math.random() * (h * 0.6) + (h * 0.2);
-            // CORAZONES PASAN RÁPIDO: Incremento sustancial de los vectores vectoriales de velocidad
             this.vx = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2.5);
             this.vy = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2.5);
         }
         update() {
             this.x += this.vx; this.y += this.vy; this.pulse += 0.08;
-            // Desvanecer el corazón si supera los límites físicos y no es alcanzado por los avatares
             if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.isFinished = true; }
         }
         draw() {
@@ -488,7 +492,6 @@
             if (this.y < this.radius || this.y > canvas.height - this.radius) this.vy *= -1;
             this.pulse += 0.04;
 
-            // Detección e interacción geométrica por alcance con los corazones veloces
             items.forEach(item => {
                 if (!item.isFinished && Math.hypot(this.x - item.x, this.y - item.y) <= this.radius + item.radius) {
                     item.isFinished = true; this.hp = Math.min(100, this.hp + 25);
@@ -530,7 +533,6 @@
         draw() { ctx.strokeStyle = this.color; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x - this.vx, this.y - this.vy); ctx.stroke(); }
     }
 
-    // MECANISMO DE CONTROL: REGENERADOR DE COLA TOTALMENTE ALEATORIA SIN REPETICIÓN
     function recalcularFilaDeDuelos() {
         const vivos = students.filter(s => !s.isDead);
         comunidadFila = vivos.map(s => s.id).sort(() => Math.random() - 0.5);
@@ -538,15 +540,12 @@
 
     function launchRandomDuel() {
         const alive = students.filter(s => !s.isDead);
-        if (alive.length < 2) { triggerAlert("🚫 FINAL DEL BATTLE ROYALE PROXIMO", false); return; }
+        if (alive.length < 2) { triggerAlert("🚫 FINAL DEL BATTLE ROYALE ALCANZADO", false); return; }
 
-        // Si la cola está vacía o solo queda un residuo, se vuelve a llenar con los pilotos sobrevivientes
         if (comunidadFila.length < 2) { recalcularFilaDeDuelos(); }
 
-        let idA = comunidadFila.pop();
-        let idB = comunidadFila.pop();
+        let idA = comunidadFila.pop(); let idB = comunidadFila.pop();
 
-        // Verificación de respaldo para evitar emparejamientos nulos o duplicados
         if (idA === undefined || idB === undefined || idA === idB) {
             recalcularFilaDeDuelos();
             if (comunidadFila.length >= 2) { idA = comunidadFila.pop(); idB = comunidadFila.pop(); } 
@@ -585,16 +584,21 @@
 
         const choicesGrid = document.getElementById('combat-choices-grid'); choicesGrid.innerHTML = '';
 
-        // SINCRO SIMULTÁNEA ABSOLUTA: Despacho del payload a ambos celulares al mismo milisegundo
+        // SEÑAL SINCRO REPARADA: Construcción directa del objeto de datos para forzar la lectura del celular
+        const payloadADespachar = { type: 'DUEL_START', quote: randomQuote, choices: allChoices, level: randomCategoryObj.level };
+
         students.forEach(s => {
             if (s.isRealPlayer && s.peerId && (s.id === playerA.id || s.id === playerB.id)) {
+                // Envío por Canal Local Seguro
                 if (localBridge) {
-                    localBridge.postMessage({ sender: roomCode, target: s.peerId, data: { type: 'DUEL_START', choices: allChoices } });
+                    localBridge.postMessage({ sender: roomCode, target: s.peerId, data: payloadADespachar });
                 }
+                // Envío por Nube Redux P2P Seguro
+                const activeConn = connMap.get(s.peerId);
+                if (activeConn) { activeConn.send(payloadADespachar); }
             }
         });
 
-        // Interfaz de control de respaldo para el PC si juegan bots simulados
         document.getElementById('wait-player-status').classList.remove('hidden');
         allChoices.forEach(choice => {
             const btn = document.createElement('button');
@@ -608,9 +612,8 @@
         duelTimer = setInterval(() => { secondsLeft--; document.getElementById('countdown-timer').innerText = `${secondsLeft}s`; if (secondsLeft <= 0) { clearInterval(duelTimer); evaluateDuelResponse("", "TIMEOUT"); } }, 1000);
     }
 
-    // ARBITRAJE DE VELOCIDAD POR EMISIÓN DE CONEXIÓN DE MANDO MÓVIL
     function evaluateDuelResponse(selected, senderPeerId) {
-        if (!roundActive) return; // BLOQUEO: Si el round ya cerró por una respuesta previa, se ignoran los rezagados
+        if (!roundActive) return; 
         
         const playerA = students.find(s => s.id === activeAttackerId); const playerB = students.find(s => s.id === activeDefenderId);
         if (!playerA || !playerB) return;
@@ -622,38 +625,38 @@
         const isCorrect = selected === currentQuiz.correct;
 
         if (senderPeerId === "TIMEOUT") {
-            triggerAlert("⏳ TIEMPO AGOTADO: AMBOS ESCUDOS RESISTIERON", false);
+            triggerAlert("⏳ TIEMPO AGOTADO: ESCUDOS EN MÁXIMO", false);
         } else {
-            // Vincular al estudiante que gatilló el paquete de datos en milisegundos
             let responder = students.find(s => s.peerId === senderPeerId);
-            if (!responder) { responder = (Math.random() > 0.5) ? playerA : playerB; } // Fallback seguro para bots
+            if (!responder) { responder = (Math.random() > 0.5) ? playerA : playerB; } 
 
             if (responder.id === playerA.id) { winner = playerA; loser = playerB; } else { winner = playerB; loser = playerA; }
 
-            let baseDamage = 25; // 4 impactos netos regulados de salud
+            let baseDamage = 25; 
 
             if (isCorrect) {
                 totalSalaHits++; winner.scorePoints += 15; winner.winsCount++; loser.lossesCount++;
                 loser.hp -= baseDamage; if (loser.hp <= 0) { loser.hp = 0; loser.isDead = true; }
                 missiles.push(new ProyectilMissile(winner.x, winner.y, loser.x, loser.y, '#39ff14'));
                 for(let p=0; p<15; p++) particles.push(new Particle(loser.x, loser.y, '#39ff14'));
-                triggerAlert(`🎯 ¡IMPACTO SIMULTÁNEO! ${winner.name} acertó primero y dañó a ${loser.name}`, true);
+                triggerAlert(`🎯 ¡SISTEMA! ${winner.name} ingresó respuesta correcta primero. Daño a ${loser.name}`, true);
             } else {
                 totalSalaErrors++; winner.lossesCount++; winner.scorePoints = Math.max(0, winner.scorePoints - 5);
                 winner.hp -= baseDamage; if (winner.hp <= 0) { winner.hp = 0; winner.isDead = true; }
                 missiles.push(new ProyectilMissile(loser.x, loser.y, winner.x, winner.y, '#ff2a5f'));
                 for(let p=0; p<15; p++) particles.push(new Particle(winner.x, winner.y, '#ff2a5f'));
-                triggerAlert(`💥 ¡CONTRAGOLPE POR ERROR! ${winner.name} falló el análisis y recibió daño`, false);
+                triggerAlert(`💥 ¡CONTRAGOLPE! ${winner.name} envió pauta incorrecta`, false);
             }
         }
 
-        // Notificación de cierre de transmisión y actualización de interfaces móviles
+        const payloadFinal = { type: 'DUEL_END', winnerPeer: (isCorrect && winner ? winner.peerId : null), hp: 100, correct: currentQuiz.correct, definition: currentQuiz.definition };
+
         students.forEach(s => {
-            if (s.isRealPlayer && s.peerId && localBridge) {
-                localBridge.postMessage({ 
-                    sender: roomCode, target: s.peerId, 
-                    data: { type: 'DUEL_END', winnerPeer: (isCorrect && winner ? winner.peerId : null), hp: s.hp, correct: currentQuiz.correct, definition: currentQuiz.definition } 
-                });
+            if (s.isRealPlayer && s.peerId) {
+                payloadFinal.hp = s.hp;
+                if (localBridge) { localBridge.postMessage({ sender: roomCode, target: s.peerId, data: payloadFinal }); }
+                const targetConn = connMap.get(s.peerId);
+                if (targetConn) { targetConn.send(payloadFinal); }
             }
         });
 
@@ -671,7 +674,6 @@
     function startCanvasAnimation() {
         function loop() {
             ctx.fillStyle = "rgba(3, 7, 18, 0.16)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            // Generación controlada de botiquines rápidos
             if (Math.random() < 0.003 && items.length < 2) { items.push(new ItemPowerUp()); }
             items = items.filter(item => !item.isFinished);
             items.forEach(item => { item.update(); item.draw(); });
