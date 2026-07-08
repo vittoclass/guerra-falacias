@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guerra de Falacias: Arena Táctica v4.0</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght=0,400;0,700;1,400;1,700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght=0,400;0,700;1,400;1,700&family=Orbitron:wght=400;700;900&display=swap" rel="stylesheet">
+    <!-- QR Code Generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <!-- CDN de PeerJS original e inalterado para el canal P2P directo -->
+    <!-- WebRTC PeerJS de Respaldo Original - CAPA SAGRADA INTOCABLE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.4/peerjs.min.js"></script>
     
     <style>
@@ -38,6 +40,7 @@
             0% { background-color: rgba(245, 158, 11, 0.2); transform: scale(1); }
             100% { background-color: rgba(245, 158, 11, 0.6); transform: scale(1.02); }
         }
+        /* FILTRO CRT MONITOR MILITAR EXCLUSIVO DE CAPA VISUAL */
         .crt-lines {
             position: relative;
         }
@@ -76,7 +79,6 @@
     </header>
 
     <div id="companion-mobile-view" class="hidden w-full max-w-md mx-auto flex flex-col gap-4">
-        <!-- PANEL DE REGISTRO EN EL LOBBY MÓVIL -->
         <div id="mobile-join-panel" class="cyber-panel rounded-xl p-6 border-2 border-[#00f0ff] text-center">
             <span class="text-xs text-[#00f0ff] font-bold orbitron block mb-1">📡 MANDO DE ESTUDIANTE</span>
             <h2 class="orbitron text-lg font-black text-white mb-4">INGRESAR A LA ARENA</h2>
@@ -84,11 +86,11 @@
             <button onclick="joinClassroomAsStudent()" class="w-full bg-[#00f0ff] hover:bg-cyan-400 text-black font-bold uppercase py-3 rounded-lg text-xs orbitron tracking-wider transition-all">⚔️ REGISTRAR MI AVATAR</button>
         </div>
 
-        <!-- LOBBY MÓVIL CON BARRA DE VIDA INTEGRADA EN TIEMPO REAL -->
         <div id="mobile-lobby-panel" class="hidden cyber-panel rounded-xl p-6 border-2 border-slate-800 text-center">
             <span class="text-xs text-[#39ff14] font-bold orbitron block mb-2">🟢 EN ÓRBITA CON EL PROYECTOR</span>
             <h3 class="orbitron text-xl font-bold text-white mb-3" id="mobile-connected-name">PILOTO</h3>
             
+            <!-- CAPA EXTRA: BARRA DE VIDA REALTIME EN EL CELULAR -->
             <div class="w-full bg-slate-950 border border-slate-800 rounded-full h-5 overflow-hidden mb-4 flex items-center justify-center relative">
                 <div id="mobile-hp-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-full absolute left-0 top-0 transition-all duration-300"></div>
                 <span id="mobile-hp-text" class="text-[10px] font-mono font-bold text-white z-10">SALUD: 100%</span>
@@ -99,6 +101,7 @@
             </div>
         </div>
 
+        <!-- MANDO ACTIVO CON INTEGRACIÓN DE ALERTAS DE ALTA FIDELIDAD -->
         <div id="mobile-action-panel" class="hidden cyber-panel rounded-xl p-6 border-2 border-yellow-500 text-center pulse-fast">
             <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-4">
                 <span class="text-xs text-yellow-500 font-bold orbitron">⚠️ COMBATE ASIGNADO</span>
@@ -108,7 +111,7 @@
             <div class="grid grid-cols-1 gap-2" id="mobile-options-grid"></div>
         </div>
         
-        <!-- MODAL DE RETROALIMENTACIÓN CORRECTIVA PEDAGÓGICA EN LA MANO -->
+        <!-- MODAL DE RETROALIMENTACIÓN CORRECTIVA PEDAGÓGICA -->
         <div id="mobile-result-panel" class="hidden cyber-panel rounded-xl p-6 border-2 text-center">
             <span class="text-4xl block mb-2" id="mobile-result-icon">🎯</span>
             <h3 class="orbitron text-xl font-black uppercase mb-1" id="mobile-result-title">RESULTADO</h3>
@@ -119,7 +122,7 @@
 
     <div id="host-main-interface" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-4 flex flex-col gap-6">
-            <!-- PANEL DE ENLACE DE RED (QR + ENLACE) -->
+            <!-- PANEL DE ENLACE -->
             <div class="cyber-panel rounded-2xl p-5 flex flex-col gap-4 border-2 border-[#00f0ff]">
                 <h3 class="orbitron text-sm font-bold text-[#00f0ff] uppercase tracking-wider border-b border-slate-800 pb-2 flex items-center gap-2 glow-cyan"><span>📡</span> ANTENA DE TRANSMISIÓN</h3>
                 <div class="bg-slate-950 p-3 border border-slate-800 rounded-xl text-xs space-y-2 font-mono">
@@ -138,6 +141,7 @@
                 </div>
             </div>
 
+            <!-- TABLA EXTRA: GRÁFICAS Y RESÚMENES DE RANKING EN VIVO -->
             <div class="cyber-panel rounded-2xl p-5 border-2 border-[#39ff14]/30">
                 <h3 class="orbitron text-sm font-bold text-[#39ff14] uppercase tracking-wider border-b border-slate-800 pb-2 mb-3 flex justify-between items-center">
                     <span>🏆 CLASIFICACIÓN GENERAL</span>
@@ -180,6 +184,7 @@
                 </div>
             </div>
 
+            <!-- PANEL DE SELECCIÓN Y CONTROL DE DUELOS -->
             <div class="cyber-panel rounded-2xl p-5" id="action-panel">
                 <div class="flex justify-center mb-4">
                     <button onclick="launchRandomDuel()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-black uppercase orbitron px-6 py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all text-xs">⚔️ INICIAR COMBATE ALEATORIO</button>
@@ -201,7 +206,6 @@
                     </div>
                 </div>
 
-                <!-- CABINA DE COMBATE INTERACTIVA -->
                 <div class="hidden flex flex-col gap-4" id="duel-combat-interface">
                     <div class="bg-black border-l-4 border-yellow-500 rounded p-4 font-mono text-xs md:text-sm text-slate-200 shadow-inner" id="intercepted-quote">"Interceptando transmisión argumentativa..."</div>
                     <div class="text-center py-1 hidden" id="wait-player-status"><span class="text-xs text-yellow-400 font-bold animate-pulse font-mono">📡 SEÑAL DISPARADA... EN ESPERA DEL MANDO TÁCTICO MÓVIL...</span></div>
@@ -211,6 +215,7 @@
         </div>
     </div>
 
+    <!-- VICTORIA GLOBAL BATTLE ROYALE -->
     <div id="section-general-victory" class="cyber-panel rounded-2xl p-8 text-center hidden flex flex-col items-center max-w-2xl mx-auto border-2 border-[#39ff14]">
         <span class="text-5xl mb-4">🏆</span>
         <h1 class="orbitron text-4xl font-black text-[#39ff14] uppercase tracking-widest mb-2">SOBREVIVIENTE ABSOLUTO</h1>
@@ -220,6 +225,7 @@
 </div>
 
 <script>
+    // BASE DE DATOS CURRICULAR INTEGRADA DE CONTENIDOS CHILENOS (1° A 4° MEDIO)
     const DB_FALACIAS = [
         // 1° MEDIO: RAZONAMIENTOS VÁLIDOS
         { level: "1° Medio", category: "Razonamiento por Autoridad", examples: ["El Ministerio de Salud dictaminó el uso de mascarillas debido al alza de virus respiratorios, por ende es obligatorio acatar.", "El astrofísico José Maza afirma que la colonización de Marte requiere reactores compactos."], definition: "Se fundamenta la tesis citando el prestigio de un experto o institución especialista en la materia." },
@@ -236,7 +242,7 @@
         // 3° MEDIO UNIDAD 2: MEDIOS Y POSVERDAD
         { level: "3° Medio", category: "U2: Efecto de Encuadre (Framing)", examples: ["Un diario titula 'Manifestantes bloquean el tránsito' mientras otro publica 'Ciudadanos exigen derechos'.", "Un reportaje destaca el 'gasto excesivo del Estado' omitiendo que los fondos se destinaron a nuevos hospitales públicos."], definition: "Manipulación de la opinión pública al presentar la información desde un ángulo específico que resalta ciertos sesgos." },
         { level: "3° Medio", category: "U2: Sesgo de Confirmación", examples: ["Un usuario de Twitter que bloquea todas las cuentas que piensan distinto y valida noticias falsas si apoyan su postura.", "Un estudiante que investiga un ensayo buscando solo fuentes que apoyen su hipótesis inicial, ignorando los datos reales."], definition: "Tendencia a buscar, interpretar y recordar únicamente la información que confirma nuestras creencias previas." },
-        { level: "3° Medio", category: "U2: Posverdad (Emoción vs Hecho)", examples: ["Una campaña digital basada en el miedo colectivo logra viralizarse por sobre los informes de las autoridades científicas.", "Un video editado en redes genera pánico sobre el desabastecimiento de agua a pesar de los datos de la sanitaria."], definition: "Distorsión de la realidad en la que los hechos objetivos tienen menos influencia que las emociones." },
+        { level: "3° Medio", category: "U2: Posverdad (Emoción vs Hecho)", examples: ["Una campaña digital basada en el miedo colectivo logra viralizarse por sobre los informes de las autoridades científicas.", "Un video editado en redes genera pánico sobre el desabastecimiento de agua a pesar de los datos de la sanitaria."], definition: "Distorsión deliberada de la realidad en la que los hechos objetivos tienen menos influencia que las emociones." },
 
         // 4° MEDIO: SESGOS ALGORÍTMICOS Y DATA MINING
         { level: "4° Medio", category: "U1: Burbujas de Filtro Algorítmicas", examples: ["La red social solo muestra videos que refuerzan los prejuicios del usuario, radicalizando su postura política.", "Dos personas buscan el mismo concepto político en Google en Maipú y reciben resultados completamente opuestos."], definition: "Aislamiento ideológico provocado por algoritmos personalizados que solo te muestran contenido afín a tus clics anteriores." },
@@ -248,6 +254,7 @@
 </script>
 
 <script>
+    // ARQUITECTURA SAGRADA DE CONEXIONES ENCAPSULADA (BROADCASTCHANNEL + PEERJS)
     let peer = null; let peerId = null; let connMap = new Map(); let isHost = true; let roomCode = "";
     let totalSalaHits = 0; let totalSalaErrors = 0;
     const studentRandomId = "STUDENT-" + Math.floor(100000 + Math.random() * 900000);
@@ -355,9 +362,9 @@
             document.getElementById('mobile-action-panel').classList.remove('hidden');
             document.getElementById('mobile-role-alert').innerText = data.role === 'ATTACKER' ? '⚡ ¡ATACAS! IDENTIFICA EL CONCEPTO' : '🛡️ ¡SITUACIÓN DE BOMBA! REVISA EL PROYECTOR';
             
-            // Vibrador seguro con Try/Catch para evitar fallos en Safari o navegadores restrictivos
-            if (data.role === 'ATTACKER' && typeof navigator !== 'undefined' && navigator.vibrate) {
-                try { navigator.vibrate([200, 100, 200]); } catch(err) {}
+            // PROTOCOLO ALTA FIDELIDAD: VIBRACIÓN FÍSICA SEGURA EN CELULAR
+            if (data.role === 'ATTACKER' && navigator.vibrate) {
+                try { navigator.vibrate([200, 100, 200]); } catch(e) {}
             }
 
             const optionsGrid = document.getElementById('mobile-options-grid'); optionsGrid.innerHTML = '';
@@ -376,12 +383,12 @@
             document.getElementById('mobile-action-panel').classList.add('hidden');
             document.getElementById('mobile-result-panel').classList.remove('hidden');
             
-            // Vibrador de daño severo encapsulado
-            if (!data.isCorrect && data.role === 'DEFENDER' && typeof navigator !== 'undefined' && navigator.vibrate) {
-                try { navigator.vibrate([500, 150, 500]); } catch(err) {}
+            // PROTOCOLO BOMBA: VIBRACIÓN FUERTE EN CELULAR DEL DEFENSOR
+            if (!data.isCorrect && data.role === 'DEFENDER' && navigator.vibrate) {
+                try { navigator.vibrate([500, 150, 500]); } catch(e) {}
             }
 
-            // Actualizando barra de energía local en la pantalla del celular
+            // ACTUALIZACIÓN DE BARRA DE ENERGÍA LOCAL
             document.getElementById('mobile-hp-bar').style.width = data.hp + '%';
             document.getElementById('mobile-hp-text').innerText = `SALUD: ${data.hp}%`;
 
@@ -389,7 +396,7 @@
             document.getElementById('mobile-result-icon').innerText = isWin ? "🎯" : "💥";
             document.getElementById('mobile-result-title').innerText = isWin ? "EVALUACIÓN EXITOSA" : "IMPACTO DE BOMBA RECIBIDO";
             
-            // Retroalimentación pedagógica explicativa del error
+            // RETROALIMENTACIÓN PEDAGÓGICA INTEGRADA EN EL CELULAR
             const feedbackBox = document.getElementById('mobile-feedback-box');
             if (isWin) {
                 feedbackBox.innerHTML = `<span class="text-[#39ff14] text-xs font-bold block mb-1">¡Buen análisis!</span><p class="text-[11px] text-slate-400">Mantienes tu posición de liderazgo en el ranking de la arena.</p>`;
@@ -414,6 +421,7 @@
 </script>
 
 <script>
+    // MOTOR GRÁFICO HTML5 CANVAS AVANZADO (FÍSICA DE ESTELAS, EXPLOSIONES Y POWER-UPS)
     let canvas, ctx; let students = []; let missiles = []; let particles = []; let items = [];
     let activeAttackerId = null; let activeDefenderId = null;
     let duelTimer; let secondsLeft = 15; let currentQuiz = null;
@@ -430,6 +438,7 @@
         if (canvas && container) { canvas.width = container.clientWidth; canvas.height = container.clientHeight; }
     }
 
+    // CLASE PARTICULA PARA EXPLOSIONES RADIALES
     class Particle {
         constructor(x, y, color) {
             this.x = x; this.y = y; this.color = color;
@@ -451,7 +460,7 @@
         }
     }
 
-    // CLASE BOTIQUÍN MÉDICO ORBITAL
+    // CLASE ITEM POWERUP PARA CURACIÓN ORBITAL
     class ItemPowerUp {
         constructor() {
             this.radius = 10; this.pulse = 0; this.isFinished = false;
@@ -474,13 +483,13 @@
         }
     }
 
+    // CORRECCIÓN HISTÓRICA DEL ERROR CRÍTICO DEL CANVAS DETECTADO EN LA CAPTURA DE PANTALLA
     class SpaceStudent {
         constructor(id, name) {
             this.id = id; this.name = name; this.emoji = EMOJIS[id % EMOJIS.length];
             this.hp = 100; this.isDead = false; this.isRealPlayer = false; this.peerId = null;
             this.radius = 18; this.pulse = Math.random() * Math.PI;
-            
-            // Atributos de puntaje y ranking del juego
+            // ESTRUCTURA EXTENDIDA DE PUNTOS
             this.scorePoints = 0; this.winsCount = 0; this.lossesCount = 0;
             this.initPositions();
         }
@@ -499,20 +508,12 @@
             if (this.y < this.radius || this.y > canvas.height - this.radius) this.vy *= -1;
             this.pulse += 0.04;
 
-            // Recolección de botiquín curativo
+            // COLECTOR DE BOTIQUINES POR DISTANCIA PITAGÓRICA
             items.forEach(item => {
                 if (!item.isFinished && Math.hypot(this.x - item.x, this.y - item.y) <= this.radius + item.radius) {
                     item.isFinished = true;
                     this.hp = Math.min(100, this.hp + 25);
                     triggerAlert(`💚 BOTIQUÍN: ${this.name.toUpperCase()} RECUPERÓ +25% SALUD`, true);
-                    
-                    // Notificar al celular del alumno si es jugador real
-                    if (this.isRealPlayer && this.peerId && localBridge) {
-                        localBridge.postMessage({
-                            sender: roomCode, target: this.peerId,
-                            data: { type: 'HP_UPDATE', hp: this.hp }
-                        });
-                    }
                     updateDashboardCounters();
                 }
             });
@@ -530,10 +531,15 @@
                     ctx.strokeStyle = "#ff2a5f"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, this.radius + 5, 0, Math.PI * 2); ctx.stroke();
                 }
 
+                // GEOMETRIA VECTORIAL SCI-FI AVANZADA
                 ctx.strokeStyle = "rgba(0, 240, 255, 0.4)"; ctx.lineWidth = 1;
                 ctx.beginPath(); ctx.arc(0, 0, this.radius + 2 + Math.sin(this.pulse)*2, 0, Math.PI * 2); ctx.stroke();
 
-                ctx.fillStyle = "#0b101d"; ctx.beginPath(); ctx.arc(0, 0, this.radius); ctx.fill();
+                // SOLUCIÓN AL ERROR DE 3 ARGUMENTOS MOSTRADO EN "Captura de pantalla 2026-07-07 233440.png"
+                ctx.fillStyle = "#0b101d"; ctx.beginPath(); 
+                ctx.arc(0, 0, this.radius, 0, Math.PI * 2); // <- ¡Corregido a 5 argumentos para evitar crash!
+                ctx.fill();
+                
                 ctx.font = "13px sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(this.emoji, 0, -1);
                 
                 ctx.strokeStyle = this.hp > 50 ? "#39ff14" : "#ffea00"; ctx.lineWidth = 2.5;
@@ -545,7 +551,6 @@
         }
     }
 
-    // CLASE PROYECTIL DE COMBATE
     class ProyectilMissile {
         constructor(fromX, fromY, toX, toY, color) {
             this.x = fromX; this.y = fromY; this.toX = toX; this.toY = toY; this.color = color; this.isFinished = false;
@@ -625,7 +630,7 @@
 
         const isCorrect = selected === currentQuiz.correct;
         
-        // Daño exacto fijado en 25% para asegurar 4 duelos de supervivencia por alumno
+        // PROTOCOLO 4 VIDAS MINIMAS: DAÑO FIJO A 25 PUNTOS (SOPORTA 4 GOLPES DE 100 HP)
         let baseDamage = 25;
 
         if (isCorrect) {
@@ -635,7 +640,7 @@
             if (defender.hp <= 0) { defender.hp = 0; defender.isDead = true; }
             missiles.push(new ProyectilMissile(attacker.x, attacker.y, defender.x, defender.y, '#39ff14'));
             
-            // Creación local de chispas en el radar local del proyector
+            // DISPARADOR DE PARTICULAS EXPLOSIVAS EN COORDENADAS DEL OBJETIVO
             for(let p=0; p<15; p++) particles.push(new Particle(defender.x, defender.y, '#39ff14'));
             triggerAlert(`🎯 ¡CORRECTO! ${attacker.name} causó impacto de bomba en ${defender.name}`, true);
         } else {
@@ -649,7 +654,7 @@
             triggerAlert(`💥 ¡ERROR! Contragolpe explosivo directo hacia ${attacker.name}`, false);
         }
 
-        // Transmisión de resultado final a los alumnos involucrados
+        // DESPACHO DE PAYLOAD COMPLETO A LA RED PARA CELULARES
         students.forEach(s => {
             if (s.isRealPlayer && s.peerId && localBridge) {
                 localBridge.postMessage({ 
@@ -682,14 +687,15 @@
 
     function startCanvasAnimation() {
         function loop() {
-            // Limpieza por persistencia para estelas de arrastre vectoriales
+            // PROTOCOLO OPTIMIZACIÓN VISUAL: EFECTO ESTELA POR OPACIDAD PARCIAL DEL FONDO
             ctx.fillStyle = "rgba(3, 7, 18, 0.16)"; ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Factor de aparición controlado de botiquines en órbita
-            if (Math.random() < 0.0025 && items.length < 2) {
+            // GENERACIÓN DE BOTIQUINES MEDICOS ORBITALES
+            if (Math.random() < 0.002 && items.length < 2) {
                 items.push(new ItemPowerUp());
             }
 
+            // Renderizado secuencial de arrays locales
             items = items.filter(item => !item.isFinished);
             items.forEach(item => { item.update(); item.draw(); });
 
@@ -723,7 +729,7 @@
         document.getElementById('stat-total-hits').innerText = totalSalaHits;
         document.getElementById('stat-total-errors').innerText = totalSalaErrors;
 
-        // Algoritmo de clasificación con priorización de sobrevivientes y puntaje acumulado
+        // ALGORITMO RANKING COMPACTO EN TIEMPO REAL
         const sorted = [...students].sort((a, b) => {
             if (a.isDead && !b.isDead) return 1;
             if (!a.isDead && b.isDead) return -1;
@@ -734,7 +740,7 @@
         sorted.forEach((s, idx) => {
             const div = document.createElement('div');
             let positionSymbol = (idx === 0 && !s.isDead) ? "👑 " : "";
-            div.className = s.isDead ? "flex justify-between items-center bg-slate-950/30 px-3 py-1 rounded border border-slate-900 text-slate-600 animate-pulse" : "flex justify-between items-center bg-slate-900 px-3 py-1 rounded border border-slate-800 text-slate-200";
+            div.className = s.isDead ? "flex justify-between items-center bg-slate-950/30 px-3 py-1 rounded border border-slate-900 text-slate-600" : "flex justify-between items-center bg-slate-900 px-3 py-1 rounded border border-slate-800 text-slate-200";
             div.innerHTML = `
                 <span class="text-[11px] truncate w-32">${positionSymbol}${s.emoji} ${s.name} ${s.isRealPlayer ? '📱':''}</span>
                 <span class="text-[10px] font-mono">${s.isDead ? 'DERRIBADO' : 'PTS:'+s.scorePoints+' [⚔️'+s.winsCount+' 💀'+s.hp+'%]'}</span>
@@ -760,12 +766,23 @@
         new QRCode(qrContainer, { text: companionUrl, width: 135, height: 135 });
     }
 
-    function copySessionLink() { navigator.clipboard.writeText(window.generatedCompanionUrl || window.location.href); triggerAlert("🔗 ENLACE COPIADO", true); }
+    function copySessionLink() { 
+        const link = window.generatedCompanionUrl || window.location.href;
+        const tempInput = document.createElement("input");
+        tempInput.value = link;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        triggerAlert("🔗 ENLACE COPIADO", true); 
+    }
+
     function triggerAlert(msg, isGreen = false) {
         const box = document.getElementById('custom-alert'); document.getElementById('alert-text').innerText = msg;
         box.className = `fixed top-4 left-1/2 -translate-x-1/2 z-50 border-2 rounded-xl px-6 py-3 font-bold bg-slate-950 ${isGreen ? 'border-[#39ff14] text-[#39ff14]' : 'border-red-500 text-[#ff2a5f]'}`;
         box.classList.remove('hidden'); setTimeout(() => box.classList.add('hidden'), 2500);
     }
+    
     function resetWholeArena() {
         document.getElementById('section-general-victory').classList.add('hidden');
         document.getElementById('host-main-interface').classList.remove('hidden');
